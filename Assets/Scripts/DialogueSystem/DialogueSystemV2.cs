@@ -40,9 +40,6 @@ public class DialogueSystemV2 : MonoBehaviour
         //Debug.Log(string.Format("Formated Debug at start of DialogueSystemV1"));
         _textFileFormatter = GetComponent<TextFileFormatter>();
 
-        //TODO: move these to OnEnable.
-        //then remove them in OnDisable.
-        //EventCoordinator<UnitDeathEventInfo>.RegisterListener(SoundOnUnitDeath);
 
         CheckTypingDelay();
 
