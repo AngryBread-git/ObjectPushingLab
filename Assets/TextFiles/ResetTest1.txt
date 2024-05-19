@@ -1,3 +1,3 @@
-﻿Blah di dah, philosophy. 
-words. 
-{AutoNextLine,true}{ResetObjects,1}
+﻿more words, <style="LargePink">la di da.</style> <style="BoldBlue">a flock of seagulls. <style="BoldRed">red dead oh wait
+words. ok having to end each dialogue with the line below is not great.
+{AutoNextLine,true}{StartOver,1}

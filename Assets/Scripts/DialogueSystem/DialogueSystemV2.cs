@@ -354,8 +354,8 @@ public class DialogueSystemV2 : MonoBehaviour
                 EventCoordinator<SetTextWaveEventInfo>.FireEvent(ei);
                 break;
 
-            case ResetObjectsEvent ei:
-                EventCoordinator<ResetObjectsEvent>.FireEvent(ei);
+            case StartOverEvent ei:
+                EventCoordinator<StartOverEvent>.FireEvent(ei);
                 break;
 
             case DebugEventInfo ei:
