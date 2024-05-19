@@ -11,7 +11,7 @@ public class CharacterMovementV1 : MonoBehaviour
     private CharacterController _characterController;
     private Animator _animator;
     private ObjectPush _objectPush;
-    [SerializeField] private Transform _characterModel;
+    //private Transform _characterModel;
 
     [Header("Player Control Variables")]
     [Range(4, 8)] [SerializeField] private float _rotationFactor = 0.6f;
@@ -30,9 +30,8 @@ public class CharacterMovementV1 : MonoBehaviour
     [SerializeField] private bool _isMovementPressed;
     [SerializeField] private bool _isPushPressed;
     [SerializeField] private bool _isFallenOver;
-    //animation refs
-    //private string _currentAnimationName = "";
-    //private string _lastSubstateAnitmationName = "";
+
+    private DialogueSystemV2 _dialogueSystemV2;
 
 
 
@@ -42,7 +41,9 @@ public class CharacterMovementV1 : MonoBehaviour
         _characterController = GetComponent<CharacterController>();
         _animator = GetComponentInChildren<Animator>();
         _objectPush = GetComponent<ObjectPush>();
-        
+        _dialogueSystemV2 = FindAnyObjectByType<DialogueSystemV2>();
+
+
         _appliedMovement.y = _gravity;
 
         _playerInput.BasicInputs.Move.started += context =>
@@ -54,6 +55,8 @@ public class CharacterMovementV1 : MonoBehaviour
 
             _playerInput.BasicInputs.Push.started += OnPushInput;
             //_playerInput.BasicInputs.Push.canceled += OnPushInput;
+
+            _playerInput.BasicInputs.AdvanceDialogue.started += OnAdvanceDialogueInput;
         };
     }
 
@@ -90,6 +93,11 @@ public class CharacterMovementV1 : MonoBehaviour
 
 
         _objectPush.IsPushing = _isPushPressed;  
+    }
+
+    private void OnAdvanceDialogueInput(InputAction.CallbackContext context)
+    {
+        _dialogueSystemV2._advanceTextInput = true;
     }
 
 

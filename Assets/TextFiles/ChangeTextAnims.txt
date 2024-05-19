@@ -1,0 +1,9 @@
+﻿{SetTextShake,3.3,2.5}{SetTextAnimation,shaking}Okay, let's set shake values.
+{SetTextWobble,2.4,1.6}{SetTextAnimation,wobbling}Then set wobble values. hamburgefontsiv.
+{SetTextFloat,1.7,2.2}{SetTextAnimation,floating}Then set float values.
+{SetTextWave,2,0.003,5}{SetTextAnimation,waving}Then set wave values.
+Onin refers to the Japanese era during which the war started; the war ended during the Bunmei era.
+etc...
+shout-out Twelve Kingdoms
+shout-out to shout-outs.
+shout-out to this wonderful universe.

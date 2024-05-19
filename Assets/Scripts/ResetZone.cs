@@ -15,6 +15,15 @@ public class ResetZone : MonoBehaviour
         _playerStartTransform = _playerStartObject.transform.position;
     }
 
+    private void OnEnable()
+    {
+        EventCoordinator<ResetObjectsEvent>.RegisterListener(ResetObjects);
+    }
+    private void OnDisable()
+    {
+        EventCoordinator<ResetObjectsEvent>.UnregisterListener(ResetObjects);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         //Debug.Log(string.Format("ResetZone, other.tag is: {0}", other.tag));
@@ -32,6 +41,18 @@ public class ResetZone : MonoBehaviour
             other.gameObject.GetComponent<CharacterController>().enabled = true;
             Debug.Log(string.Format("Player pos is now: {0}", other.gameObject.transform.position));
         }
+    }
 
+    private void ResetObjects(ResetObjectsEvent ei)
+    {
+        Debug.Log(string.Format("ResetZone: called by ResetObjectsEvent"));
+
+        //_autoPrintNextLine = ei._isAutoNextLine;
+        //other.transform.position = _boulderStartTransform;
+
+
+        //other.gameObject.GetComponent<CharacterController>().enabled = false;
+        //other.gameObject.transform.position = _playerStartTransform;
+        //other.gameObject.GetComponent<CharacterController>().enabled = true;
     }
 }

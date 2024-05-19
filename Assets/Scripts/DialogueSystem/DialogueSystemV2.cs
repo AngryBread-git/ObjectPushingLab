@@ -30,6 +30,7 @@ public class DialogueSystemV2 : MonoBehaviour
     private bool _isPaused;
     private float _pauseDuration;
     private bool _autoPrintNextLine;
+    public bool _advanceTextInput;
 
     [SerializeField] private int _currentTextFileLineAmount;
     [SerializeField] private int _currentLineNr = 0;
@@ -75,21 +76,22 @@ public class DialogueSystemV2 : MonoBehaviour
 
     private void Update()
     {
-        if (!_isDialogueActive && Input.GetKeyDown(KeyCode.Q)) 
+        /*if (!_isDialogueActive && Input.GetKeyDown(KeyCode.Q)) 
         {
             Debug.Log(string.Format("No dialogue active. input Q."));
 
             StartDialogue(0, 0);
         }
-        if (_isDialogueActive  && Input.GetKeyDown(KeyCode.E))
+        */
+        if (_isDialogueActive  && _advanceTextInput)
         {
-
+            _advanceTextInput = false;
             Debug.Log(string.Format("Dialogue active. input E."));
             LoadNextLine();
         }
     }
 
-    private void StartDialogue(int textFileToLoad, int lineToLoad) 
+    public void StartDialogue(int textFileToLoad, int lineToLoad) 
     {
         //set values
         _isDialogueActive = true;
@@ -350,6 +352,10 @@ public class DialogueSystemV2 : MonoBehaviour
                 break;
             case SetTextWaveEventInfo ei:
                 EventCoordinator<SetTextWaveEventInfo>.FireEvent(ei);
+                break;
+
+            case ResetObjectsEvent ei:
+                EventCoordinator<ResetObjectsEvent>.FireEvent(ei);
                 break;
 
             case DebugEventInfo ei:

@@ -1,0 +1,3 @@
+﻿Blah di dah, philosophy. 
+words. 
+{AutoNextLine,true}{ResetObjects,1}

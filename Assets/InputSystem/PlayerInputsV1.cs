@@ -53,6 +53,15 @@ public partial class @PlayerInputsV1: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""AdvanceDialogue"",
+                    ""type"": ""Button"",
+                    ""id"": ""bbe6c047-4aa7-4a3c-93f4-4cd27775be9b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -176,6 +185,28 @@ public partial class @PlayerInputsV1: IInputActionCollection2, IDisposable
                     ""action"": ""CameraControl"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c8bb0f52-dcaa-4cd8-975e-38f54b0954c5"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AdvanceDialogue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3c612e63-c9a1-487d-986e-1e10b9044c09"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AdvanceDialogue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -187,6 +218,7 @@ public partial class @PlayerInputsV1: IInputActionCollection2, IDisposable
         m_BasicInputs_Move = m_BasicInputs.FindAction("Move", throwIfNotFound: true);
         m_BasicInputs_Push = m_BasicInputs.FindAction("Push", throwIfNotFound: true);
         m_BasicInputs_CameraControl = m_BasicInputs.FindAction("CameraControl", throwIfNotFound: true);
+        m_BasicInputs_AdvanceDialogue = m_BasicInputs.FindAction("AdvanceDialogue", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -251,6 +283,7 @@ public partial class @PlayerInputsV1: IInputActionCollection2, IDisposable
     private readonly InputAction m_BasicInputs_Move;
     private readonly InputAction m_BasicInputs_Push;
     private readonly InputAction m_BasicInputs_CameraControl;
+    private readonly InputAction m_BasicInputs_AdvanceDialogue;
     public struct BasicInputsActions
     {
         private @PlayerInputsV1 m_Wrapper;
@@ -258,6 +291,7 @@ public partial class @PlayerInputsV1: IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_BasicInputs_Move;
         public InputAction @Push => m_Wrapper.m_BasicInputs_Push;
         public InputAction @CameraControl => m_Wrapper.m_BasicInputs_CameraControl;
+        public InputAction @AdvanceDialogue => m_Wrapper.m_BasicInputs_AdvanceDialogue;
         public InputActionMap Get() { return m_Wrapper.m_BasicInputs; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -276,6 +310,9 @@ public partial class @PlayerInputsV1: IInputActionCollection2, IDisposable
             @CameraControl.started += instance.OnCameraControl;
             @CameraControl.performed += instance.OnCameraControl;
             @CameraControl.canceled += instance.OnCameraControl;
+            @AdvanceDialogue.started += instance.OnAdvanceDialogue;
+            @AdvanceDialogue.performed += instance.OnAdvanceDialogue;
+            @AdvanceDialogue.canceled += instance.OnAdvanceDialogue;
         }
 
         private void UnregisterCallbacks(IBasicInputsActions instance)
@@ -289,6 +326,9 @@ public partial class @PlayerInputsV1: IInputActionCollection2, IDisposable
             @CameraControl.started -= instance.OnCameraControl;
             @CameraControl.performed -= instance.OnCameraControl;
             @CameraControl.canceled -= instance.OnCameraControl;
+            @AdvanceDialogue.started -= instance.OnAdvanceDialogue;
+            @AdvanceDialogue.performed -= instance.OnAdvanceDialogue;
+            @AdvanceDialogue.canceled -= instance.OnAdvanceDialogue;
         }
 
         public void RemoveCallbacks(IBasicInputsActions instance)
@@ -311,5 +351,6 @@ public partial class @PlayerInputsV1: IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnPush(InputAction.CallbackContext context);
         void OnCameraControl(InputAction.CallbackContext context);
+        void OnAdvanceDialogue(InputAction.CallbackContext context);
     }
 }
