@@ -1,0 +1,5 @@
+﻿gets demoted to Platinum
+What?! That can’t be right. 
+Pointlessness of not even getting a fancy rank.
+I will try to figure out a way to make this thing more fun for you.
+{AutoNextLine,true}{SetNextStage,1}

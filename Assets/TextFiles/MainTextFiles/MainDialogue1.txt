@@ -1,0 +1,4 @@
+﻿info om Sisyphus. i.e. cursed for eternity by the gods.
+***resten
+“The struggle itself towards the heights is enough to fill a man’s heart. One must imagine Sisyphus happy.” - Albert Camus, 1942.
+{AutoNextLine,true}{SetNextStage,1}
