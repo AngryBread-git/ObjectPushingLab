@@ -11,9 +11,21 @@ public class HatAdder : MonoBehaviour
         //AddHat(0); 
     }
 
-    public void AddHat(int hatNr) 
+    private void OnEnable()
     {
-        _hats[hatNr].SetActive(true);
+        EventCoordinator<AddHatEvent>.RegisterListener(AddHat);
+    }
+    private void OnDisable()
+    {
+        EventCoordinator<AddHatEvent>.UnregisterListener(AddHat);
+    }
+
+    private void AddHat(AddHatEvent ei) 
+    {
+        if (ei._hatNr < _hats.Length) 
+        {
+            _hats[ei._hatNr].SetActive(true);
+        }
 
     }
 }

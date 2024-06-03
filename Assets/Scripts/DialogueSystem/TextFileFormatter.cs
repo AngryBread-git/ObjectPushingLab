@@ -179,10 +179,19 @@ public class TextFileFormatter : MonoBehaviour
                 stwaResult._waveHeight = Convert.ToSingle(splitString[3]);
                 return stwaResult;
 
-            case "StartOver":
-                StartOverEvent soResult = new StartOverEvent();
-                soResult._loopToStart = Convert.ToInt32(splitString[1]);
-                return soResult;
+            case "SetNextStage":
+                SetNextStageEvent snsResult = new SetNextStageEvent();
+                snsResult._nextStageNr = Convert.ToInt32(splitString[1]);
+                return snsResult;
+
+            case "AddUIElement":
+                AddUIElementEvent aueResult = new AddUIElementEvent();
+                aueResult._UIElementNr = Convert.ToInt32(splitString[1]);
+                return aueResult;
+            case "AddHat":
+                AddHatEvent ahResult = new AddHatEvent();
+                ahResult._hatNr = Convert.ToInt32(splitString[1]);
+                return ahResult;
 
             default:
                 Debug.LogWarning(string.Format("Default in FormatEventCall. EventType {0} does not exist.", splitString[0]));

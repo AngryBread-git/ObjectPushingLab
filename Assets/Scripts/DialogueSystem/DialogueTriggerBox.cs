@@ -5,12 +5,13 @@ using UnityEngine;
 public class DialogueTriggerBox : MonoBehaviour
 {
     [SerializeField] private int _textFileToLoad;
-    [SerializeField] private DialogueSystemV2 _dialogueSystemV2;
-
+    private DialogueSystemV2 _dialogueSystemV2;
+    //an int to keep track of the next line? so I don't have to have different textfiles for each conversation?
+    private int _lineToLoad = 0;
     // Start is called before the first frame update
     void Start()
     {
-        
+        _dialogueSystemV2 = FindObjectOfType<DialogueSystemV2>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -19,7 +20,7 @@ public class DialogueTriggerBox : MonoBehaviour
         if (other.CompareTag("Boulder"))
         {
 
-            _dialogueSystemV2.StartDialogue(_textFileToLoad, 0);
+            _dialogueSystemV2.StartDialogue(_textFileToLoad, _lineToLoad);
             _textFileToLoad += 1;
         }
     }

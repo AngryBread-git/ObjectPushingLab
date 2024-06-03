@@ -354,8 +354,15 @@ public class DialogueSystemV2 : MonoBehaviour
                 EventCoordinator<SetTextWaveEventInfo>.FireEvent(ei);
                 break;
 
-            case StartOverEvent ei:
-                EventCoordinator<StartOverEvent>.FireEvent(ei);
+            case SetNextStageEvent ei:
+                EventCoordinator<SetNextStageEvent>.FireEvent(ei);
+                break;
+
+            case AddUIElementEvent ei:
+                EventCoordinator<AddUIElementEvent>.FireEvent(ei);
+                break;
+            case AddHatEvent ei:
+                EventCoordinator<AddHatEvent>.FireEvent(ei);
                 break;
 
             case DebugEventInfo ei:

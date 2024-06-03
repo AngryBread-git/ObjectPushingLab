@@ -1,0 +1,5 @@
+﻿more words, and show image {AddUIElement,0} 0. 
+also show {AddUIElement,1} 1. la di da.
+then {AddUIElement,2}2.
+then {AddUIElement,3}3.
+{AutoNextLine,true}{SetNextStage,1}

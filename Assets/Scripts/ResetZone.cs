@@ -23,11 +23,11 @@ public class ResetZone : MonoBehaviour
 
     private void OnEnable()
     {
-        EventCoordinator<StartOverEvent>.RegisterListener(ResetObjects);
+        EventCoordinator<SetNextStageEvent>.RegisterListener(ResetObjects);
     }
     private void OnDisable()
     {
-        EventCoordinator<StartOverEvent>.UnregisterListener(ResetObjects);
+        EventCoordinator<SetNextStageEvent>.UnregisterListener(ResetObjects);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -49,7 +49,7 @@ public class ResetZone : MonoBehaviour
         }
     }
 
-    private void ResetObjects(StartOverEvent ei)
+    private void ResetObjects(SetNextStageEvent ei)
     {
         Debug.Log(string.Format("ResetZone: called by ResetObjectsEvent"));
 
