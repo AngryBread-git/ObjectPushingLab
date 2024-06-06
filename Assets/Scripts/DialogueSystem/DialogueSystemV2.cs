@@ -17,7 +17,8 @@ public class DialogueSystemV2 : MonoBehaviour
     //[SerializeField] private TMP_Animation _tmpAnimation;
 
     //Setttings
-    [SerializeField] private List<TextAsset> _textFiles;
+    [SerializeField] private List<TextAsset> _mainTextFiles;
+    [SerializeField] private List<TextAsset> _sideTextFiles;
     [SerializeField] [Range(0.01f, 0.5f)] private float _typingDelay;
     private float _orgTypingDelay;
 
@@ -91,13 +92,32 @@ public class DialogueSystemV2 : MonoBehaviour
         }
     }
 
-    public void StartDialogue(int textFileToLoad, int lineToLoad) 
+    public void StartDialogue(int textFileToLoad, int lineToLoad, string textFileType) 
     {
         //set values
         _isDialogueActive = true;
         _currentTextFileNr = textFileToLoad;
         _currentLineNr = lineToLoad;
-        _currentTextFileLineAmount = _textFileFormatter.NumberOfLinesInTextFile(_textFiles[_currentTextFileNr]);
+
+        if (textFileType.Equals("main"))
+        {
+            if (_mainTextFiles.Count < _currentTextFileNr) 
+            {
+                Debug.LogWarning(string.Format("Textfile nr greater than amount of textfiles for main."));
+                _currentTextFileLineAmount = _textFileFormatter.NumberOfLinesInTextFile(_mainTextFiles[0]);
+            }
+            _currentTextFileLineAmount = _textFileFormatter.NumberOfLinesInTextFile(_mainTextFiles[_currentTextFileNr]);
+        }
+        else if (textFileType.Equals("side")) 
+        {
+            if (_sideTextFiles.Count < _currentTextFileNr)
+            {
+                Debug.LogWarning(string.Format("Textfile nr greater than amount of textfiles for side."));
+                _currentTextFileLineAmount = _textFileFormatter.NumberOfLinesInTextFile(_sideTextFiles[0]);
+            }
+
+            _currentTextFileLineAmount = _textFileFormatter.NumberOfLinesInTextFile(_sideTextFiles[_currentTextFileNr]);
+        }
 
         //activate assets.
         if (_textBox != null)
@@ -108,7 +128,7 @@ public class DialogueSystemV2 : MonoBehaviour
         _textGameObject.SetActive(true);
         _textMeshPro.text = "";
 
-        _formattedLines = _textFileFormatter.FormatTextFile(_textFiles[_currentTextFileNr]);
+        _formattedLines = _textFileFormatter.FormatTextFile(_mainTextFiles[_currentTextFileNr]);
         StartCoroutine(PrintLine(_formattedLines[_currentLineNr]));
 
     }
@@ -354,8 +374,8 @@ public class DialogueSystemV2 : MonoBehaviour
                 EventCoordinator<SetTextWaveEventInfo>.FireEvent(ei);
                 break;
 
-            case SetNextStageEvent ei:
-                EventCoordinator<SetNextStageEvent>.FireEvent(ei);
+            case NextStageEvent ei:
+                EventCoordinator<NextStageEvent>.FireEvent(ei);
                 break;
 
             case AddUIElementEvent ei:

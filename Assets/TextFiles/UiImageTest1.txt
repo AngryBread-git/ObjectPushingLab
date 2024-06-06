@@ -2,4 +2,4 @@
 also show {AddUIElement,1} 1. la di da.
 then {AddUIElement,2}2.
 then {AddUIElement,3}3.
-{AutoNextLine,true}{SetNextStage,1}
+{AutoNextLine,true}{NextStage,1}

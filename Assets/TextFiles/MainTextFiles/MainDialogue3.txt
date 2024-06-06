@@ -1,4 +1,4 @@
 ﻿Get one now and we’ll throw in *beat. The Diamond rank form Lol shows up. * a rank. That’s right, you’re now a Diamond-rank boulder pusher! Feel the engagement. 
 (another hat, this one for the boulder.)
 Keep up that engaging grind!
-{AutoNextLine,true}{SetNextStage,1}
+{AutoNextLine,true}{NextStage,3}

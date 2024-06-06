@@ -12,22 +12,23 @@ public class ResetZone : MonoBehaviour
     [SerializeField] private GameObject _player;
     private Vector3 _playerStartTransform;
 
-
+    [SerializeField] private DialogueTriggerBox _dialogueTriggerBox;
 
 
     private void Start()
     {
         _boulderStartTransform = _boulderStartObject.transform.position;
         _playerStartTransform = _playerStartObject.transform.position;
+
     }
 
     private void OnEnable()
     {
-        EventCoordinator<SetNextStageEvent>.RegisterListener(ResetObjects);
+        EventCoordinator<NextStageEvent>.RegisterListener(ResetObjects);
     }
     private void OnDisable()
     {
-        EventCoordinator<SetNextStageEvent>.UnregisterListener(ResetObjects);
+        EventCoordinator<NextStageEvent>.UnregisterListener(ResetObjects);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -46,10 +47,12 @@ public class ResetZone : MonoBehaviour
             _player.transform.position = _playerStartTransform;
             _player.GetComponent<CharacterController>().enabled = true;
             Debug.Log(string.Format("Player pos is now: {0}", other.gameObject.transform.position));
+
+            _dialogueTriggerBox.StartSideDialogue();
         }
     }
 
-    private void ResetObjects(SetNextStageEvent ei)
+    private void ResetObjects(NextStageEvent ei)
     {
         Debug.Log(string.Format("ResetZone: called by ResetObjectsEvent"));
 

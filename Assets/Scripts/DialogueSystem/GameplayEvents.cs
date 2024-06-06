@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SetNextStageEvent : EventInfo
+public class NextStageEvent : EventInfo
 {
-    //written as "{SetNextStage,X}". in the textfile. With X being a valid int.
+    //written as "{NextStage,X}". in the textfile. With X being a valid int.
     public int _nextStageNr;
 }
 

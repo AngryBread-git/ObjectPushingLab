@@ -2,4 +2,4 @@
 He toils without reward. *beat. * But what if he got a reward?
 Now presenting: hat, the only meaning to your existence. 
 Show of the time you’ve spent rolling a boulder with this groundbreaking piece of headwear.
-{AutoNextLine,true}{SetNextStage,1}
+{AutoNextLine,true}{NextStage,2}
