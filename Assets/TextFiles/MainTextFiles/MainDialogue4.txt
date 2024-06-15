@@ -1,9 +1,7 @@
-﻿You got another hat?
-And it went on the boulder?
+﻿You got another hat? And it went on the boulder?
 You must forgive me Sisyphus, this is my first time creating matter in quite some time.
 You know how it is - it takes longer than you’d think, objects never end where you want them, the works.
 I’ll try to figure out a solution to the hat problem but in the meantime just focus on something else.
 Like your rank. A Diamond Rank boulder pusher, not everyone can brag about being one of those.
-And I bet that, any day now, you’re going to be promoted. 
-*** with the way you’re pushing that boulder,
+{AddHat}And I imagine that, any day now, you’re going to be promoted. 
 {AutoNextLine,true}{NextStage,4}

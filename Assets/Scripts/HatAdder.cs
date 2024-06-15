@@ -5,6 +5,7 @@ using UnityEngine;
 public class HatAdder : MonoBehaviour
 {
     [SerializeField] private GameObject[] _hats;
+    private int hatNr = 0;
 
     private void Start()
     {  
@@ -22,9 +23,10 @@ public class HatAdder : MonoBehaviour
 
     private void AddHat(AddHatEvent ei) 
     {
-        if (ei._hatNr < _hats.Length) 
+        hatNr += 1;
+        if (hatNr < _hats.Length) 
         {
-            _hats[ei._hatNr].SetActive(true);
+            _hats[hatNr].SetActive(true);
         }
 
     }

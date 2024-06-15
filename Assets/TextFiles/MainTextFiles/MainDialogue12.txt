@@ -1,0 +1,2 @@
+﻿Finale.
+{AutoNextLine,true}{NextStage,13}

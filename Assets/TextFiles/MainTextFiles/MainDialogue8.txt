@@ -1,0 +1,6 @@
+﻿Ok Sisyphus, after entire minutes of figuring out a new and exciting idea, I think I have it.
+Introducing, roguelike deck-builder mechanics. Let's see our first pick. {AddUIElement,2}
+Oh oh, get that one. The third one. Look, “2% lifesteal from yoga mats” that’s definitely a buildaround.
+Imagine!{AddUIElement,3}. All yoga mats will heal you whenever you attack with one. Now things are getting engaging. 
+With such a great first pick, I don’t even have to imagine you happy. Because I know you are.
+{AutoNextLine,true}{NextStage,9}

@@ -190,7 +190,6 @@ public class TextFileFormatter : MonoBehaviour
                 return aueResult;
             case "AddHat":
                 AddHatEvent ahResult = new AddHatEvent();
-                ahResult._hatNr = Convert.ToInt32(splitString[1]);
                 return ahResult;
 
             default:

@@ -59,7 +59,7 @@ public class Bumper : MonoBehaviour
             StartCoroutine(LerpPosition(_positions[_targetPosition], _movementDuration));
         }
 
-        Debug.Log(string.Format("_targetPosition: {0}", _targetPosition));
+        //Debug.Log(string.Format("_targetPosition: {0}", _targetPosition));
     }
 
 }

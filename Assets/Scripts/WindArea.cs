@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class WindArea : MonoBehaviour
 {
-    [SerializeField] Vector3 _pushForce;
+    [SerializeField] private Vector3 _pushForce;
 
     private void OnTriggerEnter(Collider other)
     {
         //Debug.Log(string.Format("WindArea, other.tag is: {0}", other.tag));
         if (other.CompareTag("Boulder"))
         {
-            Debug.Log(string.Format("WindArea hit boulder {0}", other.attachedRigidbody.velocity));
-            other.attachedRigidbody.AddForce(_pushForce, ForceMode.VelocityChange);
+            //Debug.Log(string.Format("WindArea hit boulder {0}", other.attachedRigidbody.velocity));
+            Vector3 rotatedForce = transform.rotation * _pushForce;
+            other.attachedRigidbody.AddForce(rotatedForce, ForceMode.VelocityChange);
 
-            Debug.Log(string.Format("WindArea addforce, {0}", other.attachedRigidbody.velocity));
+            //Debug.Log(string.Format("WindArea addforce, {0}", other.attachedRigidbody.velocity));
         }
 
     }

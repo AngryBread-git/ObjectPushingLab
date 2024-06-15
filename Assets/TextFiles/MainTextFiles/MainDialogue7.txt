@@ -1,5 +1,4 @@
-﻿gets demoted to Platinum
-What?! That can’t be right. 
+﻿{AddUIElement,1}What?! You got demoted to Diamond?<br>That can’t be right. 
 Pointlessness of not even getting a fancy rank.
 I will try to figure out a way to make this thing more fun for you.
-{AutoNextLine,true}{NextStage,7}
+{AutoNextLine,true}{NextStage,8}

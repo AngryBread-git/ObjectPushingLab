@@ -20,6 +20,12 @@ public class HazardSpawner : MonoBehaviour
     {
         List<GameObject> currentList = SelectHazardList(ei._nextStageNr);
 
+        if (currentList == null) 
+        {
+            Debug.LogWarning(string.Format("HazardSpawner: currentList is null"));
+            return;
+        }
+
         foreach (GameObject gameObject in currentList) 
         {
             gameObject.SetActive(true);
@@ -37,7 +43,7 @@ public class HazardSpawner : MonoBehaviour
                 //etc
             default:
                 Debug.LogWarning(string.Format("HazardSpawner: {0} not found", i));
-                return _hazardList1;
+                return null;
         }
     }
 }

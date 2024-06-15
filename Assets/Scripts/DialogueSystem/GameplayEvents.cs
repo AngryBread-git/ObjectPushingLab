@@ -16,6 +16,6 @@ public class AddUIElementEvent : EventInfo
 
 public class AddHatEvent : EventInfo
 {
-    //written as "{AddHat,X}". in the textfile. With X being a valid int.
+    //written as "{AddHat}". in the textfile.
     public int _hatNr;
 }
