@@ -37,18 +37,18 @@ public class ResetZone : MonoBehaviour
         if (other.CompareTag("Boulder"))
         {
             Debug.Log(string.Format("Boulder pos is: {0}", _boulder.transform.position));
-            _boulder.transform.position = _boulderStartTransform;
+            ResetBoulder();
+            ResetPlayer();
         }
         else if (other.CompareTag("Player"))
         {
             //Debug.Log(string.Format("other name is: {0}", other.gameObject));
             Debug.Log(string.Format("Player pos is: {0}", other.gameObject.transform.position));
-            _player.GetComponent<CharacterController>().enabled = false;
-            _player.transform.position = _playerStartTransform;
-            _player.GetComponent<CharacterController>().enabled = true;
+
+            ResetPlayer();
             Debug.Log(string.Format("Player pos is now: {0}", other.gameObject.transform.position));
 
-            _dialogueTriggerBox.StartSideDialogue();
+            //_dialogueTriggerBox.StartSideDialogue();
         }
     }
 
@@ -57,10 +57,21 @@ public class ResetZone : MonoBehaviour
         Debug.Log(string.Format("ResetZone: called by ResetObjectsEvent"));
 
 
-        _boulder.transform.position = _boulderStartTransform;
+        ResetPlayer();
 
+        ResetBoulder();
+    }
+
+    private void ResetPlayer() 
+    {
         _player.GetComponent<CharacterController>().enabled = false;
         _player.transform.position = _playerStartTransform;
         _player.GetComponent<CharacterController>().enabled = true;
+    }
+
+    private void ResetBoulder() 
+    {
+        _boulder.transform.position = _boulderStartTransform;
+
     }
 }
