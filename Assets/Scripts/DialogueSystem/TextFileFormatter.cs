@@ -179,7 +179,7 @@ public class TextFileFormatter : MonoBehaviour
                 stwaResult._waveHeight = Convert.ToSingle(splitString[3]);
                 return stwaResult;
 
-            case "SetNextStage":
+            case "NextStage":
                 NextStageEvent snsResult = new NextStageEvent();
                 snsResult._nextStageNr = Convert.ToInt32(splitString[1]);
                 return snsResult;

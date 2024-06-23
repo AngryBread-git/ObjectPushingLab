@@ -19,3 +19,7 @@ public class AddHatEvent : EventInfo
     //written as "{AddHat}". in the textfile.
     public int _hatNr;
 }
+
+public class TeleportToTopEvent : EventInfo
+{
+}

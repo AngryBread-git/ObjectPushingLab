@@ -5,7 +5,6 @@ using UnityEngine;
 public class DialogueTriggerBox : MonoBehaviour
 {
     [SerializeField] private int _mainTextFileToLoad;
-    [SerializeField] private int _sideTextFileToLoad;
     private DialogueSystemV2 _dialogueSystemV2;
 
     // Start is called before the first frame update
@@ -25,9 +24,4 @@ public class DialogueTriggerBox : MonoBehaviour
         }
     }
 
-    public void StartSideDialogue() 
-    {
-        _dialogueSystemV2.StartDialogue(_sideTextFileToLoad, 0, "side");
-        _sideTextFileToLoad += 1;
-    }
 }

@@ -31,6 +31,8 @@ public class CharacterMovementV1 : MonoBehaviour
     [SerializeField] private bool _isPushPressed;
     [SerializeField] private bool _isFallenOver;
 
+    [SerializeField] private bool _allowTeleport;
+
     private DialogueSystemV2 _dialogueSystemV2;
 
 
@@ -57,6 +59,8 @@ public class CharacterMovementV1 : MonoBehaviour
             //_playerInput.BasicInputs.Push.canceled += OnPushInput;
 
             _playerInput.BasicInputs.AdvanceDialogue.started += OnAdvanceDialogueInput;
+
+            _playerInput.BasicInputs.Teleport.started += TeleportToTop;
         };
     }
 
@@ -98,6 +102,16 @@ public class CharacterMovementV1 : MonoBehaviour
     private void OnAdvanceDialogueInput(InputAction.CallbackContext context)
     {
         _dialogueSystemV2._advanceTextInput = true;
+    }
+
+    //for simplified testing
+    private void TeleportToTop(InputAction.CallbackContext context)
+    {
+        if (_allowTeleport) 
+        {
+            TeleportToTopEvent ei = new TeleportToTopEvent();
+            EventCoordinator<TeleportToTopEvent>.FireEvent(ei);
+        }
     }
 
 

@@ -5,12 +5,16 @@ using UnityEngine;
 public class ResetZone : MonoBehaviour
 {
     [SerializeField] private GameObject _boulderStartObject;
+    [SerializeField] private GameObject _boulderTopObject;
     [SerializeField] private GameObject _boulder;
     private Vector3 _boulderStartTransform;
+    private Vector3 _boulderTopTransform;
 
     [SerializeField] GameObject _playerStartObject;
+    [SerializeField] GameObject _playerTopObject;
     [SerializeField] private GameObject _player;
     private Vector3 _playerStartTransform;
+    private Vector3 _playerTopTransform;
 
     [SerializeField] private DialogueTriggerBox _dialogueTriggerBox;
 
@@ -20,15 +24,20 @@ public class ResetZone : MonoBehaviour
         _boulderStartTransform = _boulderStartObject.transform.position;
         _playerStartTransform = _playerStartObject.transform.position;
 
+        _boulderTopTransform = _boulderTopObject.transform.position;
+        _playerTopTransform = _playerTopObject.transform.position;
+
     }
 
     private void OnEnable()
     {
         EventCoordinator<NextStageEvent>.RegisterListener(ResetObjects);
+        EventCoordinator<TeleportToTopEvent>.RegisterListener(TeleportToTop);
     }
     private void OnDisable()
     {
         EventCoordinator<NextStageEvent>.UnregisterListener(ResetObjects);
+        EventCoordinator<TeleportToTopEvent>.UnregisterListener(TeleportToTop);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -73,5 +82,14 @@ public class ResetZone : MonoBehaviour
     {
         _boulder.transform.position = _boulderStartTransform;
 
+    }
+
+    private void TeleportToTop(TeleportToTopEvent ei) 
+    {
+        _boulder.transform.position = _boulderTopTransform;
+
+        _player.GetComponent<CharacterController>().enabled = false;
+        _player.transform.position = _playerTopTransform;
+        _player.GetComponent<CharacterController>().enabled = true;
     }
 }

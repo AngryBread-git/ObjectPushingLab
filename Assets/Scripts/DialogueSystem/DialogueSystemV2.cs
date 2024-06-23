@@ -18,7 +18,6 @@ public class DialogueSystemV2 : MonoBehaviour
 
     //Setttings
     [SerializeField] private List<TextAsset> _mainTextFiles;
-    [SerializeField] private List<TextAsset> _sideTextFiles;
     [SerializeField] [Range(0.01f, 0.5f)] private float _typingDelay;
     private float _orgTypingDelay;
 
@@ -99,25 +98,14 @@ public class DialogueSystemV2 : MonoBehaviour
         _currentTextFileNr = textFileToLoad;
         _currentLineNr = lineToLoad;
 
-        if (textFileType.Equals("main"))
-        {
-            if (_mainTextFiles.Count < _currentTextFileNr) 
-            {
-                Debug.LogWarning(string.Format("Textfile nr greater than amount of textfiles for main."));
-                _currentTextFileLineAmount = _textFileFormatter.NumberOfLinesInTextFile(_mainTextFiles[0]);
-            }
-            _currentTextFileLineAmount = _textFileFormatter.NumberOfLinesInTextFile(_mainTextFiles[_currentTextFileNr]);
-        }
-        else if (textFileType.Equals("side")) 
-        {
-            if (_sideTextFiles.Count < _currentTextFileNr)
-            {
-                Debug.LogWarning(string.Format("Textfile nr greater than amount of textfiles for side."));
-                _currentTextFileLineAmount = _textFileFormatter.NumberOfLinesInTextFile(_sideTextFiles[0]);
-            }
 
-            _currentTextFileLineAmount = _textFileFormatter.NumberOfLinesInTextFile(_sideTextFiles[_currentTextFileNr]);
+        if (_mainTextFiles.Count < _currentTextFileNr)
+        {
+            Debug.LogWarning(string.Format("Textfile nr greater than amount of textfiles for main."));
+            _currentTextFileLineAmount = _textFileFormatter.NumberOfLinesInTextFile(_mainTextFiles[0]);
         }
+        _currentTextFileLineAmount = _textFileFormatter.NumberOfLinesInTextFile(_mainTextFiles[_currentTextFileNr]);
+
 
         //activate assets.
         if (_textBox != null)

@@ -1,4 +1,5 @@
 ﻿{AddUIElement,1}What?! You got demoted to Diamond?<br>That can’t be right. 
-Pointlessness of not even getting a fancy rank.
-I will try to figure out a way to make this thing more fun for you.
+Here you had a goal. Status to acheive.
+But now you need to work your way up to Emerald again. What a horrible shame.
+I will try to figure out another way to make this more fun for you.
 {AutoNextLine,true}{NextStage,8}

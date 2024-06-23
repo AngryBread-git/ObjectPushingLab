@@ -62,6 +62,15 @@ public partial class @PlayerInputsV1: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Teleport"",
+                    ""type"": ""Button"",
+                    ""id"": ""919869ed-4e54-47a1-9838-57b4c5bec15b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -207,6 +216,28 @@ public partial class @PlayerInputsV1: IInputActionCollection2, IDisposable
                     ""action"": ""AdvanceDialogue"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9c379210-2175-492c-96c6-6acd7e910d91"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Teleport"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""24568f23-a169-40a1-9bd5-38de84379e02"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Teleport"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -219,6 +250,7 @@ public partial class @PlayerInputsV1: IInputActionCollection2, IDisposable
         m_BasicInputs_Push = m_BasicInputs.FindAction("Push", throwIfNotFound: true);
         m_BasicInputs_CameraControl = m_BasicInputs.FindAction("CameraControl", throwIfNotFound: true);
         m_BasicInputs_AdvanceDialogue = m_BasicInputs.FindAction("AdvanceDialogue", throwIfNotFound: true);
+        m_BasicInputs_Teleport = m_BasicInputs.FindAction("Teleport", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -284,6 +316,7 @@ public partial class @PlayerInputsV1: IInputActionCollection2, IDisposable
     private readonly InputAction m_BasicInputs_Push;
     private readonly InputAction m_BasicInputs_CameraControl;
     private readonly InputAction m_BasicInputs_AdvanceDialogue;
+    private readonly InputAction m_BasicInputs_Teleport;
     public struct BasicInputsActions
     {
         private @PlayerInputsV1 m_Wrapper;
@@ -292,6 +325,7 @@ public partial class @PlayerInputsV1: IInputActionCollection2, IDisposable
         public InputAction @Push => m_Wrapper.m_BasicInputs_Push;
         public InputAction @CameraControl => m_Wrapper.m_BasicInputs_CameraControl;
         public InputAction @AdvanceDialogue => m_Wrapper.m_BasicInputs_AdvanceDialogue;
+        public InputAction @Teleport => m_Wrapper.m_BasicInputs_Teleport;
         public InputActionMap Get() { return m_Wrapper.m_BasicInputs; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -313,6 +347,9 @@ public partial class @PlayerInputsV1: IInputActionCollection2, IDisposable
             @AdvanceDialogue.started += instance.OnAdvanceDialogue;
             @AdvanceDialogue.performed += instance.OnAdvanceDialogue;
             @AdvanceDialogue.canceled += instance.OnAdvanceDialogue;
+            @Teleport.started += instance.OnTeleport;
+            @Teleport.performed += instance.OnTeleport;
+            @Teleport.canceled += instance.OnTeleport;
         }
 
         private void UnregisterCallbacks(IBasicInputsActions instance)
@@ -329,6 +366,9 @@ public partial class @PlayerInputsV1: IInputActionCollection2, IDisposable
             @AdvanceDialogue.started -= instance.OnAdvanceDialogue;
             @AdvanceDialogue.performed -= instance.OnAdvanceDialogue;
             @AdvanceDialogue.canceled -= instance.OnAdvanceDialogue;
+            @Teleport.started -= instance.OnTeleport;
+            @Teleport.performed -= instance.OnTeleport;
+            @Teleport.canceled -= instance.OnTeleport;
         }
 
         public void RemoveCallbacks(IBasicInputsActions instance)
@@ -352,5 +392,6 @@ public partial class @PlayerInputsV1: IInputActionCollection2, IDisposable
         void OnPush(InputAction.CallbackContext context);
         void OnCameraControl(InputAction.CallbackContext context);
         void OnAdvanceDialogue(InputAction.CallbackContext context);
+        void OnTeleport(InputAction.CallbackContext context);
     }
 }
