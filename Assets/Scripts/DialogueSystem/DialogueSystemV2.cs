@@ -38,7 +38,7 @@ public class DialogueSystemV2 : MonoBehaviour
 
     void Start()
     {
-        //Debug.Log(string.Format("Formated Debug at start of DialogueSystemV1"));
+        //Debug.Log(string.Format("Formated Debug at start of DialogueSystemV2"));
         _textFileFormatter = GetComponent<TextFileFormatter>();
 
 
@@ -290,12 +290,15 @@ public class DialogueSystemV2 : MonoBehaviour
 
                     //_tmpAnimation.AddCharacter(lineSubsection[j]);
 
+                    if (lineSubsection[j].Equals(' '))
+                    {
+                        PlayDialogueSoundEvent ei = new PlayDialogueSoundEvent();
+                        EventCoordinator<PlayDialogueSoundEvent>.FireEvent(ei);
+                    }
+
                     yield return new WaitForSeconds(_typingDelay);
 
-                    /*if (lineSubsection[j].Equals(' '))
-                    {
-                        _tmpAnimation.ReadTextMesh();
-                    }*/
+
                 }
                 
             }

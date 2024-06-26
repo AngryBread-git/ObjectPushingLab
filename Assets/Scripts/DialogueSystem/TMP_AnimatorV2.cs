@@ -255,7 +255,7 @@ public class TMP_AnimatorV2 : MonoBehaviour
     #region EventListeners
     private void OnTextChange(Object obj) 
     {
-        Debug.Log(string.Format("OnTextChange: "));
+        //Debug.Log(string.Format("OnTextChange: "));
         if (obj == _textMesh)
         {
             _textInfo = _textMesh.textInfo;

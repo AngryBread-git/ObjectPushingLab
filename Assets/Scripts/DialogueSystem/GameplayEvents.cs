@@ -23,3 +23,7 @@ public class AddHatEvent : EventInfo
 public class TeleportToTopEvent : EventInfo
 {
 }
+
+public class PlayDialogueSoundEvent : EventInfo
+{
+}
