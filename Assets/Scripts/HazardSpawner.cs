@@ -22,9 +22,9 @@ public class HazardSpawner : MonoBehaviour
     {
         List<GameObject> currentList = SelectHazardList(ei._nextStageNr);
 
-        if (currentList == null) 
+        if (currentList.Count == 0) 
         {
-            Debug.LogWarning(string.Format("HazardSpawner: currentList is null"));
+            Debug.LogWarning(string.Format("HazardSpawner: currentList is empty"));
             return;
         }
 

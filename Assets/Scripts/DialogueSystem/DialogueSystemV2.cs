@@ -125,7 +125,11 @@ public class DialogueSystemV2 : MonoBehaviour
     {
         Debug.Log(string.Format("EndDialogue"));
         _isDialogueActive = false;
+        _autoPrintNextLine = false;
 
+        SetTextAnimationStyleEventInfo ei = new SetTextAnimationStyleEventInfo();
+        ei._animationStyle = (AnimationStyle)Enum.Parse(typeof(AnimationStyle), "none");
+        EventCoordinator<SetTextAnimationStyleEventInfo>.FireEvent(ei);
 
         if (_textBox != null)
         {

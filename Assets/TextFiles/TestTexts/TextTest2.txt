@@ -1,0 +1,5 @@
+﻿{SetTextAnimation,shaking}Okay, let's set shake values. The fox jumps over etc.
+{SetTextAnimation,wobbling}Then do wobble. hamburgefontsiv.
+{SetTextAnimation,floating}Then set float. Lorem ipsum dolor amet.
+{SetTextAnimation,waving}Then do the wave. She lorem on my ipsum til I dolor amet.
+{AutoNextLine,true}{NextStage,1}

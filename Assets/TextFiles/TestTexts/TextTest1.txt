@@ -1,0 +1,3 @@
+﻿words. and after this sentence there's a pause. {PauseTyping,1.2}lorem ipsum and other things.
+{DecreaseTypingDelay,0.01}and these words are printed fast. gotta go fast.{IncreaseTypingDelay,0.04} and these words are slow. wow. <br>the emotion.{DecreaseTypingDelay,0.03} And back to normal.
+{AutoNextLine,true}{NextStage,1}
