@@ -22,7 +22,12 @@ public class HazardSpawner : MonoBehaviour
     {
         List<GameObject> currentList = SelectHazardList(ei._nextStageNr);
 
-        if (currentList.Count == 0) 
+        if (currentList == null) 
+        {
+            Debug.LogWarning(string.Format("HazardSpawner: no list was returned"));
+            return;
+        }
+        else if (currentList.Count == 0) 
         {
             Debug.LogWarning(string.Format("HazardSpawner: currentList is empty"));
             return;

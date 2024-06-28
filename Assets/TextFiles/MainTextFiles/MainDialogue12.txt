@@ -1,2 +1,2 @@
-﻿Finale.
-{AutoNextLine,true}{NextStage,13}
+﻿The game is over.{PauseTyping,0.3} You’re done.{PauseTyping,0.3} Go outside.
+{AutoNextLine,true}{NextStage}

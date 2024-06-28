@@ -1,5 +1,4 @@
-﻿One must not imagine Sisyphus happy. There is no intrinsic joy in pushing a boulder up a hill.
-He toils without reward.{PauseTyping,0.2}<br>But what if he got a reward?
-Now presenting:{PauseTyping,0.2}{AddHat} hat, the only meaning to your existence. 
-Show of the time you’ve spent rolling a boulder with this groundbreaking piece of headwear.
-{AutoNextLine,true}{NextStage,2}
+﻿Don’t worry Sisyphus. You’re not just getting a hat.
+Starting today you’re also a{AddUIElement,0}{PauseTyping,0.5} Diamond-rank boulder pusher!
+{AddHat}Feel the engagement.
+{AutoNextLine,true}{NextStage}

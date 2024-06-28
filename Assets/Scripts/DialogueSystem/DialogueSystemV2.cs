@@ -384,6 +384,7 @@ public class DialogueSystemV2 : MonoBehaviour
                 break;
 
             case NextStageEvent ei:
+                ei._nextStageNr = _currentTextFileNr + 1;
                 EventCoordinator<NextStageEvent>.FireEvent(ei);
                 break;
 

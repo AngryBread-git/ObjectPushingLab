@@ -1,3 +1,2 @@
-﻿Sorry about that earlier outburst. 
-I just find this whole demand for productivity utterly exhausting.
-{AutoNextLine,true}{NextStage,12}
+﻿Finale.
+{AutoNextLine,true}{NextStage}

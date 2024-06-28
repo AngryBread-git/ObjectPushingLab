@@ -1,6 +1,5 @@
-﻿Good news, Sisyphus. The gods have heard my complaint and I’ve even received a response. 
-It says: “Dear Mortal. Thank you for contacting Mt. Olympus.
-Unfortunately we are very busy at the moment. We will get back to you at the earliest opportunity. - The Gods”
-That’s underwhelming.{PauseTyping,0.2}<br>How’s the boulder pushing?
-Not much fun I imagine.{PauseTyping,0.2}<br>Have another hat.{AddHat}
-{AutoNextLine,true}{NextStage,6}
+﻿{AddUIElement,1}What?!{PauseTyping,0.2} You got demoted to Emerald?<br>{PauseTyping,0.3}That can’t be right.
+You had a goal.{PauseTyping,0.2} Something to accomplish.
+But now you need to work your way up to Emerald again.{IncreaseTypingDelay,0.04} Oh, what’s the point of it all...
+{DecreaseTypingDelay,0.04}No need to worry. I will try to figure out another way to make this more fun for you.
+{AutoNextLine,true}{NextStage}
