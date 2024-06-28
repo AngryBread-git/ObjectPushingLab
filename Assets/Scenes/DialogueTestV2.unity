@@ -4838,7 +4838,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1374758575}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.23, y: 0.5, z: 1.28}
+  m_LocalPosition: {x: -1.23, y: 0.5, z: -2.48}
   m_LocalScale: {x: 20.040827, y: 1, z: 2.8478816}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6256,7 +6256,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -2205940976481164871, guid: 16dc42ad79d1b704fb8865e0b0872d78, type: 2}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: f8a21110f7b53514d8ffbc2a4a8c173f, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.5
   m_Pitch: 1
@@ -6369,7 +6369,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2ba8ec1b4d227b4f8dfb71c0f826623, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _audioClips: []
+  _audioSource: {fileID: 0}
+  _audioClips:
+  - {fileID: 8300000, guid: f8a21110f7b53514d8ffbc2a4a8c173f, type: 3}
+  - {fileID: 8300000, guid: da478940ae3d7e34895c2af164ad741b, type: 3}
 --- !u!4 &1805546081 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4317798910472417882, guid: 3caa8b1e12469ab4fab6ac434e1b2acb, type: 3}
@@ -6624,6 +6627,7 @@ MonoBehaviour:
   _mainTextFiles:
   - {fileID: 4900000, guid: 4a8d63540df85bd48b057ab4c250727e, type: 3}
   - {fileID: 4900000, guid: 63240bd3424101348a8a2962ed8b7e0d, type: 3}
+  - {fileID: 4900000, guid: 8eab99f984ed8e14aaf068eef00622e5, type: 3}
   _typingDelay: 0.02
   _currentTextFileNr: 0
   _advanceTextInput: 0

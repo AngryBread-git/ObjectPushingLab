@@ -155,7 +155,7 @@ public class TMP_AnimatorV2 : MonoBehaviour
     //Move each word seperatly
     private void ApplyFloatMotion(int characterIndex, int wordIndex) 
     {
-        Debug.Log(string.Format("apply float motion, characterIndex is: {0}, wordIndex is: {1}", characterIndex, wordIndex));
+        //Debug.Log(string.Format("apply float motion, characterIndex is: {0}, wordIndex is: {1}", characterIndex, wordIndex));
         Vector3 offset = FloatMotion(Time.time + wordIndex);
 
         TMP_CharacterInfo c = _textMesh.textInfo.characterInfo[characterIndex];

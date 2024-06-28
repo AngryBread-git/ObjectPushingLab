@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BackgroundMusic : MonoBehaviour
 {
-    private AudioSource _audioSource;
+    [SerializeField] private AudioSource _audioSource;
     [SerializeField] private AudioClip[] _audioClips;
     private float _orgVolume;
 
@@ -28,17 +28,35 @@ public class BackgroundMusic : MonoBehaviour
     private void ChangeBackgroundMusic(ChangeMusicEventInfo ei) 
     {
         //fade-out, then change song, then fade-in.
-        //fuck it idk.
+        if (_audioClips.Length <= ei._audioClipNr)
+        {
+            Debug.LogWarning(string.Format("audioClipNr greater than amount of audioclips for BackgroundMusic."));
+            StartCoroutine(CrossFace(_audioClips.Length -1));
+        }
+        else 
+        {
+            StartCoroutine(CrossFace(ei._audioClipNr));
+        }
+        
     }
 
-    private IEnumerator StartFade(AudioSource audioSource, float duration, float targetVolume)
+    private IEnumerator CrossFace(int audioClipNr) 
+    {
+        yield return StartCoroutine(FadeVolume(2.0f,0));
+        _audioSource.clip = _audioClips[audioClipNr];
+        _audioSource.Play();
+        yield return StartCoroutine(FadeVolume(2.0f, _orgVolume));
+    }
+
+    private IEnumerator FadeVolume(float duration, float targetVolume)
     {
         float currentTime = 0;
-        float start = audioSource.volume;
+
+        float startVolume = _audioSource.volume;
         while (currentTime < duration)
         {
             currentTime += Time.deltaTime;
-            audioSource.volume = Mathf.Lerp(start, targetVolume, currentTime / duration);
+            _audioSource.volume = Mathf.Lerp(startVolume, targetVolume, currentTime / duration);
             yield return null;
         }
         yield break;

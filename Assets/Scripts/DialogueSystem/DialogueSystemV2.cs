@@ -93,19 +93,33 @@ public class DialogueSystemV2 : MonoBehaviour
 
     public void StartDialogue(int textFileToLoad, int lineToLoad, string textFileType) 
     {
+        //If there's a dialogue active, then dont start a new one.
+        if (_isDialogueActive) 
+        {
+            return;
+        }
+
         //set values
         _isDialogueActive = true;
         _currentTextFileNr = textFileToLoad;
         _currentLineNr = lineToLoad;
 
+        //Debug.Log(string.Format("_mainTextFiles.Count: {0}", _mainTextFiles.Count));
+        //Debug.Log(string.Format("_currentTextFileNr: {0}", _currentTextFileNr));
 
-        if (_mainTextFiles.Count < _currentTextFileNr)
+        //TODO: make the object that calls the DialogueSystem hold the textfiles so this check isn't necessary.
+        //And it's easier to work with.
+        if (_mainTextFiles.Count <= _currentTextFileNr)
         {
             Debug.LogWarning(string.Format("Textfile nr greater than amount of textfiles for main."));
-            _currentTextFileLineAmount = _textFileFormatter.NumberOfLinesInTextFile(_mainTextFiles[0]);
+            _currentTextFileLineAmount = _textFileFormatter.NumberOfLinesInTextFile(_mainTextFiles[_mainTextFiles.Count - 1]);
+            _formattedLines = _textFileFormatter.FormatTextFile(_mainTextFiles[_mainTextFiles.Count - 1]);
         }
-        _currentTextFileLineAmount = _textFileFormatter.NumberOfLinesInTextFile(_mainTextFiles[_currentTextFileNr]);
-
+        else 
+        {
+            _currentTextFileLineAmount = _textFileFormatter.NumberOfLinesInTextFile(_mainTextFiles[_currentTextFileNr]);
+            _formattedLines = _textFileFormatter.FormatTextFile(_mainTextFiles[_currentTextFileNr]);
+        }
 
         //activate assets.
         if (_textBox != null)
@@ -116,7 +130,7 @@ public class DialogueSystemV2 : MonoBehaviour
         _textGameObject.SetActive(true);
         _textMeshPro.text = "";
 
-        _formattedLines = _textFileFormatter.FormatTextFile(_mainTextFiles[_currentTextFileNr]);
+        
         StartCoroutine(PrintLine(_formattedLines[_currentLineNr]));
 
     }
@@ -209,8 +223,8 @@ public class DialogueSystemV2 : MonoBehaviour
     {
         _typingDelay += ei._speedIncrease;
 
-        Debug.Log(string.Format("IncreaseTypingDelay, _speedDecrease is: {0}", ei._speedIncrease));
-        Debug.Log(string.Format("IncreaseTypingDelay, new _typingDelay is: {0}", _typingDelay));
+        //Debug.Log(string.Format("IncreaseTypingDelay, _speedDecrease is: {0}", ei._speedIncrease));
+        //Debug.Log(string.Format("IncreaseTypingDelay, new _typingDelay is: {0}", _typingDelay));
 
         CheckTypingDelay();
     }
@@ -218,8 +232,8 @@ public class DialogueSystemV2 : MonoBehaviour
     private void DecreaseTypingDelay(DecreaseTypingDelayEventInfo ei)
     {
         _typingDelay -= ei._speedDecrease;
-        Debug.Log(string.Format("DecreaseTypingDelay, _speedDecrease is: {0}", ei._speedDecrease));
-        Debug.Log(string.Format("DecreaseTypingDelay, new _typingDelay is: {0}", _typingDelay));
+        //Debug.Log(string.Format("DecreaseTypingDelay, _speedDecrease is: {0}", ei._speedDecrease));
+        //Debug.Log(string.Format("DecreaseTypingDelay, new _typingDelay is: {0}", _typingDelay));
 
         CheckTypingDelay();
     }
