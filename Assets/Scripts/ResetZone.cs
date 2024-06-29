@@ -16,9 +16,6 @@ public class ResetZone : MonoBehaviour
     private Vector3 _playerStartTransform;
     private Vector3 _playerTopTransform;
 
-    [SerializeField] private DialogueTriggerBox _dialogueTriggerBox;
-
-
     private void Start()
     {
         _boulderStartTransform = _boulderStartObject.transform.position;

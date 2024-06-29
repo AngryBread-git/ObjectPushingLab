@@ -8,7 +8,7 @@ public class ObjectPush : MonoBehaviour
 
     [SerializeField] private bool _isPushing;
 
-    [SerializeField] private CharacterMovementV1 _charMovementV1;
+    private CharacterMovementV1 _charMovementV1;
 
     public bool IsPushing 
     {
