@@ -1,5 +1,5 @@
 ﻿So sorry to ask a favor… but a friend of mine is working on something.
 He called it “Serpent Tennis” and he asked if I could hold onto some UI-elements.
 And I said “yes” despite my apartment being full. So I guess my point is, do you mind holding onto them for me?
-You mustn’t hold them for long. He said he’ll be done within a month.{AddHat}
+Thanks. {AddUIElement,4}You mustn’t hold them for long. He said he’ll be done within a month.{AddHat}
 {AutoNextLine,true}{NextStage}

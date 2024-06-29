@@ -2,6 +2,6 @@
 You must forgive me Sisyphus. This is my first time creating matter in quite some time.
 You know how it is - it takes longer than you’d think, objects never end where you want them, the works.
 I’ll try to figure out a solution to the hat problem but in the meantime just focus on something else.
-Like your rank. A Diamond Rank boulder pusher, not everyone can brag about being one of those.
-{AddHat}And I imagine that, any day now, you’re going to be promoted.
+Like your rank!{PauseTyping,0.5} A Diamond Rank boulder pusher!{PauseTyping,0.5} Not just anyone can be that.
+And I imagine that, any day now, you’re going to be promoted.
 {AutoNextLine,true}{NextStage}

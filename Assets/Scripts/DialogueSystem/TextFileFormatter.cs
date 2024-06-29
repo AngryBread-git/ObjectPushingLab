@@ -129,7 +129,6 @@ public class TextFileFormatter : MonoBehaviour
                 
             case "ChangeMusic":
                 ChangeMusicEventInfo cmResult = new ChangeMusicEventInfo();
-                cmResult._audioClipNr = Convert.ToInt32(splitString[1]);
                 return cmResult;
 
             case "SetTextAnimation":

@@ -1,5 +1,5 @@
 ﻿{AddUIElement,1}What?!{PauseTyping,0.2} You got demoted to Emerald?<br>{PauseTyping,0.3}That can’t be right.
 You had a goal.{PauseTyping,0.2} Something to accomplish.
-But now you need to work your way up to Emerald again.{IncreaseTypingDelay,0.04} Oh, what’s the point of it all...
+But now you need to work your way up to Emerald again.{IncreaseTypingDelay,0.04}<br>Oh, what’s the point of it all...
 {DecreaseTypingDelay,0.04}No need to worry. I will try to figure out another way to make this more fun for you.
 {AutoNextLine,true}{NextStage}

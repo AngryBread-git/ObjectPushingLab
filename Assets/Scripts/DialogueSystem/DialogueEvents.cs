@@ -43,9 +43,8 @@ public class AutoNextLineEventInfo : EventInfo
 
 public class ChangeMusicEventInfo : EventInfo
 {
-    //written as "{ChangeMusic,X}". in the textfile. With X being a float for an audioclip.
+    //written as "{ChangeMusic}" in the textfile. 
     //Note: could have an AudioClip, but this is a simple example.
-    public int _audioClipNr;
 }
 
 public class SetTextAnimationStyleEventInfo : EventInfo

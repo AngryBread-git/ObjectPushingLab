@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class BackgroundMusic : MonoBehaviour
 {
-    [SerializeField] private AudioSource _audioSource;
+    private AudioSource _audioSource;
     [SerializeField] private AudioClip[] _audioClips;
+    private int _currentAudioClip = 0;
     private float _orgVolume;
 
     // Start is called before the first frame update
@@ -28,14 +29,17 @@ public class BackgroundMusic : MonoBehaviour
     private void ChangeBackgroundMusic(ChangeMusicEventInfo ei) 
     {
         //fade-out, then change song, then fade-in.
-        if (_audioClips.Length <= ei._audioClipNr)
+
+        if (_audioClips.Length <= _currentAudioClip)
         {
-            Debug.LogWarning(string.Format("audioClipNr greater than amount of audioclips for BackgroundMusic."));
-            StartCoroutine(CrossFace(_audioClips.Length -1));
+            _currentAudioClip = 0;
+            StartCoroutine(CrossFace(_currentAudioClip));
         }
         else 
         {
-            StartCoroutine(CrossFace(ei._audioClipNr));
+
+            StartCoroutine(CrossFace(_currentAudioClip));
+            _currentAudioClip += 1;
         }
         
     }
@@ -45,6 +49,7 @@ public class BackgroundMusic : MonoBehaviour
         yield return StartCoroutine(FadeVolume(2.0f,0));
         _audioSource.clip = _audioClips[audioClipNr];
         _audioSource.Play();
+        //Potential problem. It seems that the audio fades back in after going back to the first song.
         yield return StartCoroutine(FadeVolume(2.0f, _orgVolume));
     }
 

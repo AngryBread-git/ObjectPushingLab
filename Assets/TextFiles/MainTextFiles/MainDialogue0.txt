@@ -1,4 +1,4 @@
-﻿Sisyphus - cursed for his hubris to roll a boulder up a hill for all eternity.
+﻿Here we see Sisyphus - cursed for his hubris to roll a boulder up a hill for all eternity.
 Each time he reaches the top, the boulder rolls down and he begins anew.
 “The struggle itself towards the heights is enough to fill a man’s heart.{PauseTyping,0.2}<br>One must imagine Sisyphus happy.” - Albert Camus, 1942.
 {AutoNextLine,true}{NextStage}

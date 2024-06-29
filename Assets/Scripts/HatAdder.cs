@@ -23,11 +23,12 @@ public class HatAdder : MonoBehaviour
 
     private void AddHat(AddHatEvent ei) 
     {
-        hatNr += 1;
+
         if (hatNr < _hats.Length) 
         {
             _hats[hatNr].SetActive(true);
         }
+        hatNr += 1;
 
     }
 }

@@ -1,6 +1,6 @@
-﻿Good news, Sisyphus.{PauseTyping,0.4} The Gods have heard my complaint and I’ve even received a response.
+﻿Good news, Sisyphus.{PauseTyping,0.4}<br>The Gods have heard my complaint and I’ve even received a response.
 It says: “Dear Mortal. Thank you for contacting Mt. Olympus.
-Unfortunately we are very busy at the moment. We will get back to you at the earliest opportunity. - The Gods”
+Unfortunately we are very busy at the moment.<br>We will get back to you at the earliest opportunity. - The Gods”
 That’s underwhelming.{PauseTyping,0.5}<br>How’s the boulder pushing?
 Not much fun I imagine.{PauseTyping,0.5}<br>Have another hat.{AddHat}
 {AutoNextLine,true}{NextStage}
