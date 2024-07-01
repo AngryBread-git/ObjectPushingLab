@@ -1,2 +1,8 @@
-﻿Finale.
+﻿Okay Sisyphus, here’s the thi{PauseTyping,0.3}ng{PauseTyping,0.3}, thing…{PauseTyping,0.3} What?
+You got rid of the boulder? Wha- but- you- how?
+But all the fun things I had planned! 
+There was gonna be a garden. And you could grow fruits and vegetables!
+Th-the boulder was gonna turn into a coffee cup. I would say “finally something with a clear affordance!”
+And the Boulder Pass. With an endless series of hats and funbucks!
+You could stay here and have fun for hours! Days! Weeks! Eternity!!!
 {AutoNextLine,true}{NextStage}

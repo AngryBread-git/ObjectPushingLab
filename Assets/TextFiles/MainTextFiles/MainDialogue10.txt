@@ -1,3 +1,6 @@
-﻿Sorry about that earlier outburst. 
-I just find this whole demand for productivity utterly exhausting.
+﻿Right, back to philosophy. “One must imagine Sisyphus happy”.<br>{PauseTyping,0.8}Nah, I don’t like it.
+“One must not imagine Sisyphus happy”, is that anything?{PauseTyping,0.5}Feels a bit pessimistic.
+What about this? "One is under no obligation to imagine Sisyphus happy." 
+"One is under no obligation to imagine Sisyphus anything." 
+However, you really should keep pushing the boulder.<br>{ChangeMusic}{PauseTyping,0.5} Just think of all the fun things that are coming!
 {AutoNextLine,true}{NextStage}
