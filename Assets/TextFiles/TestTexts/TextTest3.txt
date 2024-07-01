@@ -1,5 +1,5 @@
 ﻿more words, la di da. <style="BoldBlue">a flock of seagulls.</style> <style="BoldRed">red dead oh wait
 words.<style="LargePink"> here's some more words in a different color.</style> lorem ipsum and other things.
-{ChangeMusic,1}And now the background music should be different.
+{ChangeMusic}And now the background music should be different.
 That was all the tests. Thank you.
 {AutoNextLine,true}{NextStage,1}

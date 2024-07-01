@@ -1,4 +1,4 @@
 ﻿Don’t worry Sisyphus. You’re not just getting a hat.
-Starting today you’re also a{AddUIElement,0}{PauseTyping,0.5} Diamond-rank boulder pusher!
-{AddHat}Feel the engagement.
+Starting today you’re also a{AddUIElement,0}{ChangeMusic}{PauseTyping,0.5} Diamond-rank boulder pusher!
+{AddHat}Feel the engagement!
 {AutoNextLine,true}{NextStage}

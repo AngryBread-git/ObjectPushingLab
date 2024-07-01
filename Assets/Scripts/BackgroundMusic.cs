@@ -37,9 +37,8 @@ public class BackgroundMusic : MonoBehaviour
         }
         else 
         {
-
-            StartCoroutine(CrossFace(_currentAudioClip));
             _currentAudioClip += 1;
+            StartCoroutine(CrossFace(_currentAudioClip));
         }
         
     }

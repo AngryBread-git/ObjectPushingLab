@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using UnityEngine;
 
 public class TextFileFormatter : MonoBehaviour
@@ -99,22 +100,25 @@ public class TextFileFormatter : MonoBehaviour
     private EventInfo FormatEventCall(string eventInfoString) 
     {
         string[] splitString = eventInfoString.Split(',');
+        //Debug.LogWarning(string.Format("in FormatEventCall: splitString is: {0}", splitString));
 
         switch (splitString[0])
         {
             case "IncreaseTypingDelay":
                 IncreaseTypingDelayEventInfo itdResult = new IncreaseTypingDelayEventInfo();
-                itdResult._speedIncrease = Convert.ToSingle(splitString[1]);
+                itdResult._speedIncrease = float.Parse(splitString[1], CultureInfo.InvariantCulture.NumberFormat);
                 return itdResult;
 
             case "DecreaseTypingDelay":
                 DecreaseTypingDelayEventInfo dtdResult = new DecreaseTypingDelayEventInfo();
-                dtdResult._speedDecrease = Convert.ToSingle(splitString[1]);
+                dtdResult._speedDecrease = float.Parse(splitString[1], CultureInfo.InvariantCulture.NumberFormat);
                 return dtdResult;
 
             case "PauseTyping":
                 PauseTypingEventInfo ptResult = new PauseTypingEventInfo();
-                ptResult._pauseDuration = Convert.ToSingle(splitString[1]);
+                //Debug.LogWarning(string.Format("PauseTyping: splitString[1] is: {0}", splitString[1]));
+                //Debug.LogWarning(string.Format("PauseTyping: splitString[1] is: {0}", float.Parse(splitString[1], CultureInfo.InvariantCulture.NumberFormat)));
+                ptResult._pauseDuration = float.Parse(splitString[1], CultureInfo.InvariantCulture.NumberFormat);
                 return ptResult;
 
             case "SetLineNr":
@@ -147,7 +151,7 @@ public class TextFileFormatter : MonoBehaviour
                 for (int i = 2; i < splitString.Length; i++) 
                 {
                     Debug.Log(string.Format("splitString[i] is: {0}", splitString[i]));
-
+                    //float.Parse(splitString[1], CultureInfo.InvariantCulture.NumberFormat);
                     sswaResult._specifiedWordIndexes.Add(Convert.ToInt32(splitString[i]));
                 }
 
@@ -155,27 +159,27 @@ public class TextFileFormatter : MonoBehaviour
 
             case "SetTextShake":
                 SetTextShakeEventInfo stsResult = new SetTextShakeEventInfo();
-                stsResult._shakeHeightSpeed = Convert.ToSingle(splitString[1]);
-                stsResult._shakeWidthSpeed = Convert.ToSingle(splitString[2]);
+                stsResult._shakeHeightSpeed = float.Parse(splitString[1], CultureInfo.InvariantCulture.NumberFormat);
+                stsResult._shakeWidthSpeed = float.Parse(splitString[2], CultureInfo.InvariantCulture.NumberFormat);
                 return stsResult;
 
             case "SetTextWobble":
                 SetTextWobbleEventInfo stwResult = new SetTextWobbleEventInfo();
-                stwResult._wobbleHeightSpeed = Convert.ToSingle(splitString[1]);
-                stwResult._wobbleWidthSpeed = Convert.ToSingle(splitString[2]);
+                stwResult._wobbleHeightSpeed = float.Parse(splitString[1], CultureInfo.InvariantCulture.NumberFormat);
+                stwResult._wobbleWidthSpeed = float.Parse(splitString[2], CultureInfo.InvariantCulture.NumberFormat);
                 return stwResult;
 
             case "SetTextFloat":
                 SetTextFloatEventInfo stfResult = new SetTextFloatEventInfo();
-                stfResult._floatHeightSpeed = Convert.ToSingle(splitString[1]);
-                stfResult._floatWidthSpeed = Convert.ToSingle(splitString[2]);
+                stfResult._floatHeightSpeed = float.Parse(splitString[1], CultureInfo.InvariantCulture.NumberFormat);
+                stfResult._floatWidthSpeed = float.Parse(splitString[2], CultureInfo.InvariantCulture.NumberFormat);
                 return stfResult;
 
             case "SetTextWave":
                 SetTextWaveEventInfo stwaResult = new SetTextWaveEventInfo();
-                stwaResult._waveSpeed = Convert.ToSingle(splitString[1]);
-                stwaResult._waveLength = Convert.ToSingle(splitString[2]);
-                stwaResult._waveHeight = Convert.ToSingle(splitString[3]);
+                stwaResult._waveSpeed = float.Parse(splitString[1], CultureInfo.InvariantCulture.NumberFormat);
+                stwaResult._waveLength = float.Parse(splitString[2], CultureInfo.InvariantCulture.NumberFormat);
+                stwaResult._waveHeight = float.Parse(splitString[3], CultureInfo.InvariantCulture.NumberFormat);
                 return stwaResult;
 
             case "NextStage":

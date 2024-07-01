@@ -52,6 +52,7 @@ public class DialogueSystemV2 : MonoBehaviour
             _textBox.SetActive(false);
         }
         _textGameObject.SetActive(false);
+        _interactIndicator.SetActive(false);
 
     }
 
@@ -128,6 +129,7 @@ public class DialogueSystemV2 : MonoBehaviour
         }
 
         _textGameObject.SetActive(true);
+        _interactIndicator.SetActive(true);
         _textMeshPro.text = "";
 
         
@@ -151,7 +153,9 @@ public class DialogueSystemV2 : MonoBehaviour
         }
 
         _textGameObject.SetActive(false);
+        _interactIndicator.SetActive(false);
         _textMeshPro.text = "";
+
 
     }
 

@@ -1,5 +1,5 @@
 ﻿Ok Sisyphus, after entire minutes of figuring out a new and exciting idea.{PauseTyping,0.3}<br>I think I have it.
-A{PauseTyping,0.3} new,{PauseTyping,0.3} unique,{PauseTyping,0.3} never-before-seen idea.
+A{ChangeMusic}{PauseTyping,0.3} new,{PauseTyping,0.3} unique,{PauseTyping,0.3} never-before-seen idea.
 Introducing,{AddUIElement,2}{PauseTyping,0.5} roguelike deck-builder elements. Let's see our first pick. 
 Oh oh, get that one.{PauseTyping,0.3} The third one. Look, “2% lifesteal from yoga mats” that’s definitely a buildaround.
 Incredible!{AddUIElement,3}{PauseTyping,0.3} All yoga mats will heal you whenever you attack with one.<br>Now things are getting engaging.

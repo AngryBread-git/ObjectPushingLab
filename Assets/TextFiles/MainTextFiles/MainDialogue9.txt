@@ -1,4 +1,4 @@
-﻿{SetTextAnimation,floating}STOP{PauseTyping,0.5} DOING{PauseTyping,0.5} THINGS
+﻿{SetTextAnimation,floating}STOP{ChangeMusic}{PauseTyping,0.5} DOING{PauseTyping,0.5} THINGS
 {SetTextAnimation,wobbling}Tasks were not meant to be achievable.
 {SetTextAnimation,floating}{SetSpecifiedWordAnimation,true,0,2,4,8,9,10}Years of doing and yet there are still even more tasks to be done.
 {SetTextAnimation,waving}{SetSpecifiedWordAnimation,false}Want to work anyway, for a laugh? <br>We had a tool for that: it was called “SIMULATION GAMES”
