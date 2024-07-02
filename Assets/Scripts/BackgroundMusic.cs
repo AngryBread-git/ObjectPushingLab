@@ -48,7 +48,7 @@ public class BackgroundMusic : MonoBehaviour
         yield return StartCoroutine(FadeVolume(2.0f,0));
         _audioSource.clip = _audioClips[audioClipNr];
         _audioSource.Play();
-        //Potential problem. It seems that the audio fades back in after going back to the first song.
+
         yield return StartCoroutine(FadeVolume(2.0f, _orgVolume));
     }
 

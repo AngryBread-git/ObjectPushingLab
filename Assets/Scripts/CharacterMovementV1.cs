@@ -12,6 +12,7 @@ public class CharacterMovementV1 : MonoBehaviour
     private Animator _animator;
     private ObjectPush _objectPush;
     //private Transform _characterModel;
+    private PauseMenu _pauseMenu;
 
     [Header("Player Control Variables")]
     [Range(4, 8)] [SerializeField] private float _rotationFactor = 0.6f;
@@ -44,7 +45,7 @@ public class CharacterMovementV1 : MonoBehaviour
         _animator = GetComponentInChildren<Animator>();
         _objectPush = GetComponent<ObjectPush>();
         _dialogueSystemV2 = FindAnyObjectByType<DialogueSystemV2>();
-
+        _pauseMenu = FindAnyObjectByType<PauseMenu>();
 
         _appliedMovement.y = _gravity;
 
@@ -59,6 +60,8 @@ public class CharacterMovementV1 : MonoBehaviour
             //_playerInput.BasicInputs.Push.canceled += OnPushInput;
 
             _playerInput.BasicInputs.AdvanceDialogue.started += OnAdvanceDialogueInput;
+
+            _playerInput.BasicInputs.TogglePause.started += OnTogglePause;
 
             _playerInput.BasicInputs.Teleport.started += TeleportToTop;
         };
@@ -102,6 +105,11 @@ public class CharacterMovementV1 : MonoBehaviour
     private void OnAdvanceDialogueInput(InputAction.CallbackContext context)
     {
         _dialogueSystemV2._advanceTextInput = true;
+    }
+
+    private void OnTogglePause(InputAction.CallbackContext context) 
+    {
+        _pauseMenu.TogglePause();
     }
 
     //for simplified testing
@@ -157,6 +165,7 @@ public class CharacterMovementV1 : MonoBehaviour
 
     private void SetAnimation() 
     {
+        if (Time.timeScale == 0) { return; }
         
         if (_isMovementPressed && !_isPushPressed)
         {

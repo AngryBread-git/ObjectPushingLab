@@ -71,6 +71,15 @@ public partial class @PlayerInputsV1: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""TogglePause"",
+                    ""type"": ""Button"",
+                    ""id"": ""3b5498aa-afc6-4e79-927b-87106a4ac25c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -219,8 +228,19 @@ public partial class @PlayerInputsV1: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""99b2b1b0-a7a7-4728-bc18-2eb1114f647a"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AdvanceDialogue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""9c379210-2175-492c-96c6-6acd7e910d91"",
-                    ""path"": ""<Keyboard>/r"",
+                    ""path"": ""<Keyboard>/t"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -238,6 +258,28 @@ public partial class @PlayerInputsV1: IInputActionCollection2, IDisposable
                     ""action"": ""Teleport"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""691eccb0-3d84-46b7-b222-e950142a21f9"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TogglePause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2f9743b1-b21c-4540-a6e0-c2df6a179a69"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TogglePause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -251,6 +293,7 @@ public partial class @PlayerInputsV1: IInputActionCollection2, IDisposable
         m_BasicInputs_CameraControl = m_BasicInputs.FindAction("CameraControl", throwIfNotFound: true);
         m_BasicInputs_AdvanceDialogue = m_BasicInputs.FindAction("AdvanceDialogue", throwIfNotFound: true);
         m_BasicInputs_Teleport = m_BasicInputs.FindAction("Teleport", throwIfNotFound: true);
+        m_BasicInputs_TogglePause = m_BasicInputs.FindAction("TogglePause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -317,6 +360,7 @@ public partial class @PlayerInputsV1: IInputActionCollection2, IDisposable
     private readonly InputAction m_BasicInputs_CameraControl;
     private readonly InputAction m_BasicInputs_AdvanceDialogue;
     private readonly InputAction m_BasicInputs_Teleport;
+    private readonly InputAction m_BasicInputs_TogglePause;
     public struct BasicInputsActions
     {
         private @PlayerInputsV1 m_Wrapper;
@@ -326,6 +370,7 @@ public partial class @PlayerInputsV1: IInputActionCollection2, IDisposable
         public InputAction @CameraControl => m_Wrapper.m_BasicInputs_CameraControl;
         public InputAction @AdvanceDialogue => m_Wrapper.m_BasicInputs_AdvanceDialogue;
         public InputAction @Teleport => m_Wrapper.m_BasicInputs_Teleport;
+        public InputAction @TogglePause => m_Wrapper.m_BasicInputs_TogglePause;
         public InputActionMap Get() { return m_Wrapper.m_BasicInputs; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -350,6 +395,9 @@ public partial class @PlayerInputsV1: IInputActionCollection2, IDisposable
             @Teleport.started += instance.OnTeleport;
             @Teleport.performed += instance.OnTeleport;
             @Teleport.canceled += instance.OnTeleport;
+            @TogglePause.started += instance.OnTogglePause;
+            @TogglePause.performed += instance.OnTogglePause;
+            @TogglePause.canceled += instance.OnTogglePause;
         }
 
         private void UnregisterCallbacks(IBasicInputsActions instance)
@@ -369,6 +417,9 @@ public partial class @PlayerInputsV1: IInputActionCollection2, IDisposable
             @Teleport.started -= instance.OnTeleport;
             @Teleport.performed -= instance.OnTeleport;
             @Teleport.canceled -= instance.OnTeleport;
+            @TogglePause.started -= instance.OnTogglePause;
+            @TogglePause.performed -= instance.OnTogglePause;
+            @TogglePause.canceled -= instance.OnTogglePause;
         }
 
         public void RemoveCallbacks(IBasicInputsActions instance)
@@ -393,5 +444,6 @@ public partial class @PlayerInputsV1: IInputActionCollection2, IDisposable
         void OnCameraControl(InputAction.CallbackContext context);
         void OnAdvanceDialogue(InputAction.CallbackContext context);
         void OnTeleport(InputAction.CallbackContext context);
+        void OnTogglePause(InputAction.CallbackContext context);
     }
 }
