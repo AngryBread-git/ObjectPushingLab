@@ -1,7 +1,7 @@
 ﻿{SetTextAnimation,floating}STOP{ChangeMusic}{PauseTyping,0.5} DOING{PauseTyping,0.5} THINGS
 {SetTextAnimation,waving}Tasks were not meant to be achievable.
 {SetTextAnimation,floating}{SetSpecifiedWordAnimation,true,0,2,4,8,9,10}Years of doing and yet there are still even more tasks to be done.
-{SetTextAnimation,waving}{SetSpecifiedWordAnimation,false}Want to work anyway, for a laugh? <br>We had a tool for that: it was called “SIMULATION GAMES”
-{SetTextAnimation,shaking}{SetSpecifiedWordAnimation,true,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15}“Yes, I have ENERGY to spend working. I am going to FINISH my TODO LIST”<br> - statements dreamed up by the utterly deranged.
+{SetTextAnimation,waving}{SetSpecifiedWordAnimation,false}Want to work anyway, for a laugh? <br>We had a tool for that: it was called <style="ItalicBlue">“SIMULATION GAMES”</style>
+{SetTextAnimation,shaking}{SetSpecifiedWordAnimation,true,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15}<style="ItalicBlue">“Yes, I have ENERGY to spend working. I am going to FINISH my TODO LIST”</style><br> - statements dreamed up by the utterly deranged.
 {SetTextAnimation,waving}<style="BoldRed">????? ????????? ??????????</style>{AddHat}
 {AutoNextLine,true}{NextStage}

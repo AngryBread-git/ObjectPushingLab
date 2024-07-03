@@ -28,7 +28,21 @@ public class HatAdder : MonoBehaviour
         {
             _hats[hatNr].SetActive(true);
         }
+
         hatNr += 1;
 
+        if (hatNr == _hats.Length)
+        {
+            Debug.Log(string.Format("Final HatAdd. make them taller."));
+            Vector3 scale = new Vector3(0, 1.5f, 0);
+            foreach (GameObject hat in _hats)
+            {
+                //Debug.Log(string.Format("Final HatAdd. make them taller."));
+
+                hat.transform.localScale = scale;
+            }
+        }
+
+        Debug.Log(string.Format("hatNr:{0}", hatNr));
     }
 }

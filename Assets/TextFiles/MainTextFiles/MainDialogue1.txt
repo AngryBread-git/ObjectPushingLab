@@ -1,5 +1,5 @@
-﻿One must not imagine Sisyphus happy.{PauseTyping,0.3}<br>There is no intrinsic joy in pushing a boulder up a hill.
-He toils without reward.{PauseTyping,0.3}<br>But what if he received a reward?
-Now presenting:{AddHat}{PauseTyping,0.5} a hat. 
-Brag about the time you’ve spent rolling a boulder with this groundbreaking piece of headwear.
+﻿One <style="BoldRed">must not imagine</style> Sisyphus happy.{PauseTyping,0.3}<br>There is no intrinsic joy in pushing a boulder up a hill.
+He toils without reward.{PauseTyping,0.5} But what if he got a reward?
+Now presenting:{AddHat}{PauseTyping,0.5} a <style="OrangeBold">hat</style>.
+Brag about the time you’ve spent rolling a boulder<br>with this groundbreaking piece of <style="OrangeBold">headwear</style>.
 {AutoNextLine,true}{NextStage}

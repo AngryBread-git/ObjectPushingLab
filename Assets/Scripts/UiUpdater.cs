@@ -40,6 +40,7 @@ public class UiUpdater : MonoBehaviour
         //Yes, hard-coded values are bad. I know.
         if (ei._UIElementNr == 1)
         {
+            //sad sfx.
             _uiObjects[0].SetActive(false);
         }
 

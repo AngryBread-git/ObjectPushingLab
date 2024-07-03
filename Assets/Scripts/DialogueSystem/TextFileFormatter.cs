@@ -75,7 +75,7 @@ public class TextFileFormatter : MonoBehaviour
             {
                 //finish event
                 //The '}' is not part of the EventInfo and as such is not saved.
-                Debug.Log(string.Format("Finished formatting eventcall, eventcall is: {0}", tempContent));
+                //Debug.Log(string.Format("Finished formatting eventcall, eventcall is: {0}", tempContent));
 
                 EventInfo tempEventInfo = FormatEventCall(tempContent);
                 result.Add(new FormattedEvent(tempEventInfo));
@@ -144,13 +144,13 @@ public class TextFileFormatter : MonoBehaviour
                 SetSpecifiedWordAnimationEventInfo sswaResult = new SetSpecifiedWordAnimationEventInfo();
                 sswaResult._animatedOnlyOneWord = bool.Parse(splitString[1]);
 
-                Debug.Log(string.Format("splitString is: {0}", splitString.Length));
+                //Debug.Log(string.Format("splitString is: {0}", splitString.Length));
 
                 //The first two values in split string are a string and bool respectivly.
                 //The ints are values 2 and after.
                 for (int i = 2; i < splitString.Length; i++) 
                 {
-                    Debug.Log(string.Format("splitString[i] is: {0}", splitString[i]));
+                    //Debug.Log(string.Format("splitString[i] is: {0}", splitString[i]));
                     //float.Parse(splitString[1], CultureInfo.InvariantCulture.NumberFormat);
                     sswaResult._specifiedWordIndexes.Add(Convert.ToInt32(splitString[i]));
                 }
