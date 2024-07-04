@@ -64,6 +64,7 @@ public class CharacterMovementV1 : MonoBehaviour
             _playerInput.BasicInputs.TogglePause.started += OnTogglePause;
 
             _playerInput.BasicInputs.Teleport.started += TeleportToTop;
+            _playerInput.BasicInputs.Reset.started += ResetObjects;
         };
     }
 
@@ -121,6 +122,13 @@ public class CharacterMovementV1 : MonoBehaviour
             EventCoordinator<TeleportToTopEvent>.FireEvent(ei);
         }
     }
+
+    private void ResetObjects(InputAction.CallbackContext context)
+    {
+        ResetPositionEvent ei = new ResetPositionEvent();
+        EventCoordinator<ResetPositionEvent>.FireEvent(ei);
+    }
+
 
 
     private void SetAppliedMovement() 

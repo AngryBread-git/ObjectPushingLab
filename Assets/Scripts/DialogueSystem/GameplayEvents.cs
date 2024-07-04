@@ -25,6 +25,9 @@ public class AddHatEvent : EventInfo
 public class TeleportToTopEvent : EventInfo
 {
 }
+public class ResetPositionEvent : EventInfo
+{
+}
 
 public class PlayDialogueSoundEvent : EventInfo
 {

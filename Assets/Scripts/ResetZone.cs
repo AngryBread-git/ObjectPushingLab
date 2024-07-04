@@ -29,11 +29,13 @@ public class ResetZone : MonoBehaviour
     private void OnEnable()
     {
         EventCoordinator<NextStageEvent>.RegisterListener(ResetObjects);
+        EventCoordinator<ResetPositionEvent>.RegisterListener(ResetObjectsFromPlayer);
         EventCoordinator<TeleportToTopEvent>.RegisterListener(TeleportToTop);
     }
     private void OnDisable()
     {
         EventCoordinator<NextStageEvent>.UnregisterListener(ResetObjects);
+        EventCoordinator<ResetPositionEvent>.UnregisterListener(ResetObjectsFromPlayer);
         EventCoordinator<TeleportToTopEvent>.UnregisterListener(TeleportToTop);
     }
 
@@ -50,7 +52,7 @@ public class ResetZone : MonoBehaviour
         {
             //Debug.Log(string.Format("other name is: {0}", other.gameObject));
             Debug.Log(string.Format("Player pos is: {0}", other.gameObject.transform.position));
-
+            ResetBoulder();
             ResetPlayer();
             Debug.Log(string.Format("Player pos is now: {0}", other.gameObject.transform.position));
 
@@ -60,11 +62,17 @@ public class ResetZone : MonoBehaviour
 
     private void ResetObjects(NextStageEvent ei)
     {
-        Debug.Log(string.Format("ResetZone: called by ResetObjectsEvent"));
-
+        Debug.Log(string.Format("ResetZone: called by NextStageEvent"));
 
         ResetPlayer();
+        ResetBoulder();
+    }
 
+    private void ResetObjectsFromPlayer(ResetPositionEvent ei) 
+    {
+        Debug.Log(string.Format("ResetZone: called by ResetPositionEvent"));
+
+        ResetPlayer();
         ResetBoulder();
     }
 

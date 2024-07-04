@@ -80,6 +80,15 @@ public partial class @PlayerInputsV1: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Reset"",
+                    ""type"": ""Button"",
+                    ""id"": ""6b84395e-e91d-48a7-b107-acb50ec3dd0c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -280,6 +289,28 @@ public partial class @PlayerInputsV1: IInputActionCollection2, IDisposable
                     ""action"": ""TogglePause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e5a84302-6e6a-4c96-8eef-38809fda771b"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Reset"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3fe4531b-377f-45ad-bbb0-9e3e7a86d3de"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Reset"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -294,6 +325,7 @@ public partial class @PlayerInputsV1: IInputActionCollection2, IDisposable
         m_BasicInputs_AdvanceDialogue = m_BasicInputs.FindAction("AdvanceDialogue", throwIfNotFound: true);
         m_BasicInputs_Teleport = m_BasicInputs.FindAction("Teleport", throwIfNotFound: true);
         m_BasicInputs_TogglePause = m_BasicInputs.FindAction("TogglePause", throwIfNotFound: true);
+        m_BasicInputs_Reset = m_BasicInputs.FindAction("Reset", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -361,6 +393,7 @@ public partial class @PlayerInputsV1: IInputActionCollection2, IDisposable
     private readonly InputAction m_BasicInputs_AdvanceDialogue;
     private readonly InputAction m_BasicInputs_Teleport;
     private readonly InputAction m_BasicInputs_TogglePause;
+    private readonly InputAction m_BasicInputs_Reset;
     public struct BasicInputsActions
     {
         private @PlayerInputsV1 m_Wrapper;
@@ -371,6 +404,7 @@ public partial class @PlayerInputsV1: IInputActionCollection2, IDisposable
         public InputAction @AdvanceDialogue => m_Wrapper.m_BasicInputs_AdvanceDialogue;
         public InputAction @Teleport => m_Wrapper.m_BasicInputs_Teleport;
         public InputAction @TogglePause => m_Wrapper.m_BasicInputs_TogglePause;
+        public InputAction @Reset => m_Wrapper.m_BasicInputs_Reset;
         public InputActionMap Get() { return m_Wrapper.m_BasicInputs; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -398,6 +432,9 @@ public partial class @PlayerInputsV1: IInputActionCollection2, IDisposable
             @TogglePause.started += instance.OnTogglePause;
             @TogglePause.performed += instance.OnTogglePause;
             @TogglePause.canceled += instance.OnTogglePause;
+            @Reset.started += instance.OnReset;
+            @Reset.performed += instance.OnReset;
+            @Reset.canceled += instance.OnReset;
         }
 
         private void UnregisterCallbacks(IBasicInputsActions instance)
@@ -420,6 +457,9 @@ public partial class @PlayerInputsV1: IInputActionCollection2, IDisposable
             @TogglePause.started -= instance.OnTogglePause;
             @TogglePause.performed -= instance.OnTogglePause;
             @TogglePause.canceled -= instance.OnTogglePause;
+            @Reset.started -= instance.OnReset;
+            @Reset.performed -= instance.OnReset;
+            @Reset.canceled -= instance.OnReset;
         }
 
         public void RemoveCallbacks(IBasicInputsActions instance)
@@ -445,5 +485,6 @@ public partial class @PlayerInputsV1: IInputActionCollection2, IDisposable
         void OnAdvanceDialogue(InputAction.CallbackContext context);
         void OnTeleport(InputAction.CallbackContext context);
         void OnTogglePause(InputAction.CallbackContext context);
+        void OnReset(InputAction.CallbackContext context);
     }
 }
