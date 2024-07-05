@@ -8,12 +8,12 @@ public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private bool currentlyPaused;
 
+    [SerializeField] private GameObject _pauseMenuParent;
     [SerializeField] private GameObject _pauseMenu;
-
-
+    [SerializeField] private GameObject _optionsMenu;
     private void Start()
     {
-        _pauseMenu.SetActive(false);
+        _pauseMenuParent.SetActive(false);
     }
 
     // Update is called once per frame Pause
@@ -33,7 +33,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1;
         currentlyPaused = false;
 
-        _pauseMenu.SetActive(false);
+        _pauseMenuParent.SetActive(false);
 
     }
 
@@ -43,7 +43,9 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0;
         currentlyPaused = true;
 
-        _pauseMenu.SetActive(true);    
+        _pauseMenuParent.SetActive(true);
+        _pauseMenu.SetActive(true);
+        _optionsMenu.SetActive(false);
     }
 
     public void LoadScene(int sceneNr) 

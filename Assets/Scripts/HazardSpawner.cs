@@ -24,12 +24,12 @@ public class HazardSpawner : MonoBehaviour
 
         if (currentList == null) 
         {
-            Debug.LogWarning(string.Format("HazardSpawner: no list was returned"));
+            //Debug.LogWarning(string.Format("HazardSpawner: no list was returned"));
             return;
         }
         else if (currentList.Count == 0) 
         {
-            Debug.LogWarning(string.Format("HazardSpawner: currentList is empty"));
+            //Debug.LogWarning(string.Format("HazardSpawner: currentList is empty"));
             return;
         }
 
@@ -53,7 +53,7 @@ public class HazardSpawner : MonoBehaviour
                 return _hazardList4;
             //etc
             default:
-                Debug.LogWarning(string.Format("HazardSpawner: {0} not found", i));
+                //Debug.LogWarning(string.Format("HazardSpawner: {0} not found", i));
                 return null;
         }
     }
