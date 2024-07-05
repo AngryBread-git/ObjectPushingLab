@@ -69,7 +69,7 @@ public class CharacterMovementV1 : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (_isFallenOver) 
         {
