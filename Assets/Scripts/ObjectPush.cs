@@ -30,6 +30,7 @@ public class ObjectPush : MonoBehaviour
         }
         else if (hit.moveDirection.y < -0.3f)
         {
+            Debug.Log(string.Format("hit.moveDirection.y {0}", hit.moveDirection.y));
             return;
         }
 
@@ -42,8 +43,12 @@ public class ObjectPush : MonoBehaviour
         Vector3 pushDir = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
 
         //Debug.Log(string.Format("PushDir is: {0}", pushDir));
-
+        Debug.Log(string.Format("PushDir * PushForce is: {0}", pushDir * _pushForce));
         //body.velocity = pushDir * _pushForce;
-        body.AddForce(pushDir, ForceMode.Force);
+        body.AddForce(pushDir * _pushForce, ForceMode.Force);
+        //hit.collider.attachedRigidbody.fo
     }
+
+
+
 }

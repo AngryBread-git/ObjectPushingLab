@@ -32,7 +32,7 @@ public class HatAdder : MonoBehaviour
         if (hatNr == _hats.Length)
         {
             Debug.Log(string.Format("Final HatAdd. make them taller."));
-            Vector3 scale = new Vector3(1, 1.5f, 1);
+            Vector3 scale = new Vector3(1, 1.3f, 1);
             foreach (GameObject hat in _hats)
             {
                 //Debug.Log(string.Format("Final HatAdd. make them taller."));
