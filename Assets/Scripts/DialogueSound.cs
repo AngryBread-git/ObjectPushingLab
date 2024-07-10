@@ -12,6 +12,15 @@ public class DialogueSound : MonoBehaviour
         _audioSource = GetComponent<AudioSource>();
     }
 
+    public void PlaySoundFromOptions() 
+    {
+        if (!_audioSource.isPlaying)
+        {
+            _audioSource.pitch = Random.Range(0.85f, 1.15f);
+            _audioSource.Play();
+        }
+    }
+
     private void OnEnable()
     {
         EventCoordinator<PlayDialogueSoundEvent>.RegisterListener(PlayDialogueSound);
