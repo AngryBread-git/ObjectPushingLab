@@ -1,4 +1,4 @@
-﻿Really, still only <style="DiamondBlue">Diamond</style>?{PauseTyping,0.4} But you’ve been pushing the boulder for what feels like an eternity.
-What’s the point in pushing the damn boulder if you don’t get a reward? I’ll go complain to the Gods.
-In the meantime, here’s another <style="OrangeBold">hat</style>.{AddHat}
+﻿Really, still only <style="DiamondBlue">Diamond</style>?{PauseTyping,0.4} But you've been pushing the boulder for what feels like an eternity.
+What's the point in pushing the damn boulder if you don’t get a reward? I'll go complain to the Gods.
+In the meantime, here's another <style="OrangeBold">hat</style>.{AddHat}
 {AutoNextLine,true}{NextStage}

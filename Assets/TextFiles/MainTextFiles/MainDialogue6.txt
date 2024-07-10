@@ -1,4 +1,4 @@
-﻿{AddUIElement,1}What?!{PauseTyping,0.5} You got demoted to <style="EmeraldGreen">Emerald</style>?<br>{PauseTyping,0.3}That can’t be right.
+﻿{AddUIElement,1}What?!{PauseTyping,0.5} You got demoted to <style="EmeraldGreen">Emerald</style>?<br>{PauseTyping,0.3}That can't be right.
 You had a goal.{PauseTyping,0.3} Something to accomplish.
 But now you need to work your way up to <style="DiamondBlue">Diamond</style> again.{IncreaseTypingDelay,0.04}<br>Oh, what’s the point of it all...
 {DecreaseTypingDelay,0.04}No need to worry. I will try to figure out another way to make this more fun for you.

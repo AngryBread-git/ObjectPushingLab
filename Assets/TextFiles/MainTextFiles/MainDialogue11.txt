@@ -1,9 +1,9 @@
-﻿Here's the thing Sisyphus, we have a problem.{PauseTyping,0.5} I’m sure you noticed.
+﻿Here's the thing Sisyphus, we have a problem.{PauseTyping,0.5} I'm sure you noticed.
 The boulder can no longer roll properly.{PauseTyping,0.3} <style="OrangeBold">The hats</style> are in the way.
-It’s over.{PauseTyping,0.3} The punishment no longer applies.{PauseTyping,0.3} You can leave.
+It's over.{PauseTyping,0.3} The punishment no longer applies.{PauseTyping,0.3} You can leave.
 But I had so many fun things planned!
 There was gonna be a garden. And you could grow fruits and vegetables!
-Th-the boulder was gonna turn into a coffee cup.<br>I would say <style="ItalicBlue">“finally something with a clear affordance!”</style>
+Th-the boulder was gonna turn into a coffee cup.<br>I would say <style="ItalicBlue">"finally something with a clear affordance!"</style>
 And the Boulder Pass. With an endless series of <style="OrangeBold">hats</style> and funbucks!
 There would’ve been entertainment for hours! Days! Weeks! Eternity!!!
 Well{PauseTyping,0.3}, I suppose this is goodbye. 

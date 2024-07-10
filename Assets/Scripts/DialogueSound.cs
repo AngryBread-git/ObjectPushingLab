@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class DialogueSound : MonoBehaviour
 {
-    private AudioSource _audioSource;
+    [SerializeField]private AudioSource _audioSource;
 
     // Start is called before the first frame update
     void Start()
     {
-        _audioSource = GetComponent<AudioSource>();
+        StartCoroutine(FadeIn());
     }
 
     public void PlaySoundFromOptions() 
@@ -38,5 +38,15 @@ public class DialogueSound : MonoBehaviour
             _audioSource.Play();
         }
 
+    }
+
+    //To prevent a sound being played when the audio settings are loaded.
+    private IEnumerator FadeIn() 
+    {
+        float orgVolume = _audioSource.volume;
+        _audioSource.volume = 0.0f;
+
+        yield return new WaitForSeconds(0.1f);
+        _audioSource.volume = orgVolume;
     }
 }
