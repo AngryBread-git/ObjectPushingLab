@@ -13,7 +13,7 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject _optionsMenu;
     private void Start()
     {
-        _pauseMenuParent.SetActive(false);
+        //_pauseMenuParent.SetActive(false);
     }
 
     // Update is called once per frame Pause
@@ -50,6 +50,7 @@ public class PauseMenu : MonoBehaviour
 
     public void LoadScene(int sceneNr) 
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(sceneNr);
     }
 

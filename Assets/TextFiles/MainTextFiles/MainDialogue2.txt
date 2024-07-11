@@ -1,4 +1,4 @@
-﻿Don’t worry Sisyphus. You're not just getting a <style="OrangeBold">hat</style>.
-Starting today you’re also a{AddUIElement,0}{ChangeMusic}{PauseTyping,0.5} <style="DiamondBlue">Diamond-rank</style> boulder pusher!
+﻿Don't worry Sisyphus. You're not just getting a <style="OrangeBold">hat</style>.
+Starting today you're also a{AddUIElement,0}{ChangeMusic}{PauseTyping,0.5} <style="DiamondBlue">Diamond-rank</style> boulder pusher!
 {AddHat}Feel the engagement!
 {AutoNextLine,true}{NextStage}

@@ -1,6 +1,6 @@
 ﻿Good news, Sisyphus.{PauseTyping,0.4}<br>The Gods have heard my complaint and I've even received a response.
 It says: <style="ItalicBlue">"Dear Mortal. Thank you for contacting Mt. Olympus.
 <style="ItalicBlue">Unfortunately we are very busy at the moment.<br>We will get back to you at the earliest opportunity. - The Gods"</style>
-That’s underwhelming.{ChangeMusic}{PauseTyping,0.5}<br>How’s the boulder pushing?
+That's underwhelming.{ChangeMusic}{PauseTyping,0.5}<br>How's the boulder pushing?
 Not much fun I imagine.{PauseTyping,0.5}<br>Have another <style="OrangeBold">hat</style>.{AddHat}
 {AutoNextLine,true}{NextStage}

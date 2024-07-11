@@ -181,11 +181,12 @@ public class CharacterMovementV1 : MonoBehaviour
             _animator.Play("walk");
         }
 
-        else if (_isMovementPressed && _isPushPressed) 
+        else if (_isPushPressed) 
         {
             _animator.Play("push");
+        
         }
-        else if (!_isMovementPressed)
+        else if (!_isMovementPressed && !_isPushPressed)
         {
             _animator.Play("idle");
         }
