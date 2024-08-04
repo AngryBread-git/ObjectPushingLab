@@ -104,21 +104,18 @@ public class TextFileFormatter : MonoBehaviour
 
         switch (splitString[0])
         {
-            case "IncreaseTypingDelay":
-                IncreaseTypingDelayEventInfo itdResult = new IncreaseTypingDelayEventInfo();
-                itdResult._speedIncrease = float.Parse(splitString[1], CultureInfo.InvariantCulture.NumberFormat);
-                return itdResult;
-
-            case "DecreaseTypingDelay":
-                DecreaseTypingDelayEventInfo dtdResult = new DecreaseTypingDelayEventInfo();
-                dtdResult._speedDecrease = float.Parse(splitString[1], CultureInfo.InvariantCulture.NumberFormat);
-                return dtdResult;
+            case "SetTypingDelay":
+                SetTypingDelayEventInfo stdResult = new SetTypingDelayEventInfo();
+                stdResult._typingDelaySetting = (TypingDelaySetting)Enum.Parse(typeof(TypingDelaySetting), splitString[1]);
+                return stdResult;
 
             case "PauseTyping":
                 PauseTypingEventInfo ptResult = new PauseTypingEventInfo();
                 //Debug.LogWarning(string.Format("PauseTyping: splitString[1] is: {0}", splitString[1]));
                 //Debug.LogWarning(string.Format("PauseTyping: splitString[1] is: {0}", float.Parse(splitString[1], CultureInfo.InvariantCulture.NumberFormat)));
-                ptResult._pauseDuration = float.Parse(splitString[1], CultureInfo.InvariantCulture.NumberFormat);
+                //ptResult._pauseDuration = float.Parse(splitString[1], CultureInfo.InvariantCulture.NumberFormat);
+                float _pauseInMiliSeconds = float.Parse(splitString[1]);
+                ptResult._pauseDuration = _pauseInMiliSeconds / 1000;
                 return ptResult;
 
             case "SetLineNr":

@@ -5,23 +5,19 @@ using UnityEngine;
 
 
 
-public class IncreaseTypingDelayEventInfo : EventInfo
+public class SetTypingDelayEventInfo : EventInfo
 {
-    //written as "{IncreaseTypingDelay,X}". in the textfile. With X being a valid float.
-    public float _speedIncrease;
-}
-
-
-public class DecreaseTypingDelayEventInfo : EventInfo
-{
-    //written as "{DecreaseTypingDelay,X}". in the textfile. With X being a valid float.
-    //Note: X is a positive value, as it is subtracted from the delay.
-    public float _speedDecrease;
+    //written as "{SetTypingDelay,X}". in the textfile. With X being a valid TypingDelaySetting.
+    //Note: See the DialogurSystem for the TypingDelaySettings
+    public TypingDelaySetting _typingDelaySetting;
 }
 
 public class PauseTypingEventInfo : EventInfo
 {
-    //written as "{PauseTyping,X}". in the textfile. With X being a valid float.
+    //written as "{PauseTyping,X}". in the textfile. 
+    //NB! With X being the delay in miliseconds. 
+    //So {PauseTyping,2000} give a delay of 2 seconds
+    //And {PauseTyping,500}give a delay of half a second
     public float _pauseDuration;
 }
 

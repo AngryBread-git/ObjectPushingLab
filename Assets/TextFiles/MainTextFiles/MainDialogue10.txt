@@ -1,5 +1,5 @@
 ﻿Sisyphus, <style="BoldRed">you'll be happy</style> to hear I have a bunch of exciting new ideas coming.
-{SetTextAnimation,floating}{SetSpecifiedWordAnimation,true,4,5,6,7}To start things off:{ChangeMusic}{AddHat}{PauseTyping,0.5} extra tall hats! Incredible! 
-{SetTextAnimation,none}While I might not be able to remove the hats or make them smaller{PauseTyping,0.5}, I can make them bigger.
-{SetTextAnimation,shaking}{SetSpecifiedWordAnimation,true,8,9}And isn't that what life is all about?{PauseTyping,0.5}<br>Maybe.{PauseTyping,0.5} Probably.{PauseTyping,0.5} Keep rolling!
+{SetTextAnimation,floating}{SetSpecifiedWordAnimation,true,4,5,6,7}To start things off:{ChangeMusic}{AddHat}{PauseTyping,500} extra tall hats! Incredible! 
+{SetTextAnimation,none}While I might not be able to remove the hats or make them smaller{PauseTyping,500}, I can make them bigger.
+{SetTextAnimation,shaking}{SetSpecifiedWordAnimation,true,8,9}And isn't that what life is all about?{PauseTyping,500}<br>Maybe.{PauseTyping,500} Probably.{PauseTyping,500} Keep rolling!
 {AutoNextLine,true}{NextStage}

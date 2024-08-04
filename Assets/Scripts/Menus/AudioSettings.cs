@@ -15,7 +15,7 @@ public class AudioSettings : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(string.Format("AudioSettings Start."));
+        //Debug.Log(string.Format("AudioSettings Start."));
         LoadSavedSettings();
     }
 
@@ -30,7 +30,7 @@ public class AudioSettings : MonoBehaviour
         float tempMusicVolume = PlayerPrefs.GetFloat("musicVolume", 0.9f);
         _musicMixer.audioMixer.SetFloat("BGM_Volume", LinearToDecibel(tempMusicVolume));
         _musicSlider.value = tempMusicVolume;
-        Debug.Log(string.Format("_musicSlider is {0}.", _musicSlider.value));
+        //Debug.Log(string.Format("_musicSlider is {0}.", _musicSlider.value));
 
 
         float tempEffectsVolume = PlayerPrefs.GetFloat("effectsVolume", 0.9f);

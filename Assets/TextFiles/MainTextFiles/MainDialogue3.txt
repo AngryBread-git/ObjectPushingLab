@@ -1,8 +1,8 @@
-﻿You got another <style="OrangeBold">hat</style>?{PauseTyping,0.4} And it went on the boulder?
+﻿You got another <style="OrangeBold">hat</style>?{PauseTyping,400} And it went on the boulder?
 You must forgive me Sisyphus. This is my first time creating matter in quite some time.
-You know how it is{PauseTyping,0.3} - it takes longer than you'd think, objects never end where you want them, the works.
+You know how it is{PauseTyping,300} - it takes longer than you'd think, objects never end where you want them, the works.
 I also don't know how to remove them.
 I'll try to figure out a solution to the <style="OrangeBold">hat</style> problem but in the meantime just focus on something else.
-Like your rank!{PauseTyping,0.5} A <style="DiamondBlue">Diamond-rank</style> boulder pusher!{PauseTyping,0.5} Not just anyone can be that.
+Like your rank!{PauseTyping,500} A <style="DiamondBlue">Diamond-rank</style> boulder pusher!{PauseTyping,500} Not just anyone can be that.
 And I <style="BoldRed">imagine</style> that, any day now, you're going to be promoted.
 {AutoNextLine,true}{NextStage}

@@ -1,2 +1,2 @@
-﻿The game is over.{PauseTyping,0.3} You’re done.{PauseTyping,0.3} Go outside.
+﻿The game is over.{PauseTyping,300} You’re done.{PauseTyping,300} Go outside.
 {AutoNextLine,true}{NextStage}

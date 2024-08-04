@@ -5,21 +5,29 @@ using TMPro;
 using UnityEngine;
 
 
-[RequireComponent(typeof(TextFileFormatter))]
+public enum TypingDelaySetting
+{
+    fast,
+    normal,
+    slow,
+}
+
+
 public class DialogueSystemV2 : MonoBehaviour
 {
     //Other Classes
-    [SerializeField] private TextFileFormatter _textFileFormatter;
     [SerializeField] private TextMeshProUGUI _textMeshPro;
     [SerializeField] private GameObject _textGameObject;
     [SerializeField] private GameObject _textBox;
     [SerializeField] private GameObject _interactIndicator;
     //[SerializeField] private TMP_Animation _tmpAnimation;
 
-    //Setttings
-    [SerializeField] private List<TextAsset> _mainTextFiles;
-    [SerializeField] [Range(0.01f, 0.5f)] private float _typingDelay;
-    private float _orgTypingDelay;
+    //Settings
+    [SerializeField] private TypingDelaySetting _typingDelaySetting = TypingDelaySetting.normal;
+    [SerializeField] [Range(0.01f, 0.3f)] private float _fastTypingDelay;
+    [SerializeField] [Range(0.01f, 0.3f)] private float _normalTypingDelay;
+    [SerializeField] [Range(0.01f, 0.3f)] private float _slowTypingDelay;
+    private float _currentTypingDelay;
 
     private List<List<FormattedContent>> _formattedLines;
 
@@ -32,19 +40,14 @@ public class DialogueSystemV2 : MonoBehaviour
     private bool _autoPrintNextLine;
     public bool _advanceTextInput;
 
-    [SerializeField] private int _currentTextFileLineAmount;
+    [SerializeField] private int _lineAmount;
     [SerializeField] private int _currentLineNr = 0;
 
 
     void Start()
     {
-        //Debug.Log(string.Format("Formated Debug at start of DialogueSystemV2"));
-        _textFileFormatter = GetComponent<TextFileFormatter>();
+        ApplyTypingDelaySetting();
 
-
-        CheckTypingDelay();
-
-        _orgTypingDelay = _typingDelay;
         _textMeshPro.text = "";
 
         if (_textBox != null)
@@ -58,8 +61,8 @@ public class DialogueSystemV2 : MonoBehaviour
 
     private void OnEnable()
     {
-        EventCoordinator<IncreaseTypingDelayEventInfo>.RegisterListener(IncreaseTypingDelay);
-        EventCoordinator<DecreaseTypingDelayEventInfo>.RegisterListener(DecreaseTypingDelay);
+        EventCoordinator<SetTypingDelayEventInfo>.RegisterListener(SetTypingDelaySetting);
+
         EventCoordinator<PauseTypingEventInfo>.RegisterListener(PauseTyping);
         EventCoordinator<SetLineNumberEventInfo>.RegisterListener(SetCurrentLineNumber);
         EventCoordinator<AutoNextLineEventInfo>.RegisterListener(SetAutoNextLine);
@@ -68,8 +71,8 @@ public class DialogueSystemV2 : MonoBehaviour
 
     private void OnDisable()
     {
-        EventCoordinator<IncreaseTypingDelayEventInfo>.UnregisterListener(IncreaseTypingDelay);
-        EventCoordinator<DecreaseTypingDelayEventInfo>.UnregisterListener(DecreaseTypingDelay);
+        EventCoordinator<SetTypingDelayEventInfo>.UnregisterListener(SetTypingDelaySetting);
+
         EventCoordinator<PauseTypingEventInfo>.UnregisterListener(PauseTyping);
         EventCoordinator<SetLineNumberEventInfo>.UnregisterListener(SetCurrentLineNumber);
         EventCoordinator<AutoNextLineEventInfo>.UnregisterListener(SetAutoNextLine);
@@ -92,7 +95,7 @@ public class DialogueSystemV2 : MonoBehaviour
         }
     }
 
-    public void StartDialogue(int textFileToLoad, int lineToLoad) 
+    public void StartDialogue(int startLine, int lineAmount, List<List<FormattedContent>> formattedLines) 
     {
         //If there's a dialogue active, then dont start a new one.
         if (_isDialogueActive) 
@@ -102,25 +105,11 @@ public class DialogueSystemV2 : MonoBehaviour
 
         //set values
         _isDialogueActive = true;
-        _currentTextFileNr = textFileToLoad;
-        _currentLineNr = lineToLoad;
 
-        //Debug.Log(string.Format("_mainTextFiles.Count: {0}", _mainTextFiles.Count));
-        //Debug.Log(string.Format("_currentTextFileNr: {0}", _currentTextFileNr));
+        _currentLineNr = startLine;
+        _lineAmount = lineAmount;
+        _formattedLines = formattedLines;
 
-        //TODO: make the object that calls the DialogueSystem hold the textfiles so this check isn't necessary.
-        //And it's easier to work with.
-        if (_mainTextFiles.Count <= _currentTextFileNr)
-        {
-            Debug.LogWarning(string.Format("Textfile nr greater than amount of textfiles for main."));
-            _currentTextFileLineAmount = _textFileFormatter.NumberOfLinesInTextFile(_mainTextFiles[_mainTextFiles.Count - 1]);
-            _formattedLines = _textFileFormatter.FormatTextFile(_mainTextFiles[_mainTextFiles.Count - 1]);
-        }
-        else 
-        {
-            _currentTextFileLineAmount = _textFileFormatter.NumberOfLinesInTextFile(_mainTextFiles[_currentTextFileNr]);
-            _formattedLines = _textFileFormatter.FormatTextFile(_mainTextFiles[_currentTextFileNr]);
-        }
 
         //activate assets.
         if (_textBox != null)
@@ -164,7 +153,7 @@ public class DialogueSystemV2 : MonoBehaviour
     //move to next line.
     private void LoadNextLine() 
     {
-        if (!_isTyping && _currentLineNr < _currentTextFileLineAmount - 1)
+        if (!_isTyping && _currentLineNr < _lineAmount - 1)
         {
             
             _textMeshPro.text = "";
@@ -174,7 +163,7 @@ public class DialogueSystemV2 : MonoBehaviour
      
             StartCoroutine(PrintLine(_formattedLines[_currentLineNr]));
         }
-        else if (!_isTyping && _currentLineNr >= _currentTextFileLineAmount - 1) 
+        else if (!_isTyping && _currentLineNr >= _lineAmount - 1) 
         {
             EndDialogue();
         }
@@ -204,9 +193,9 @@ public class DialogueSystemV2 : MonoBehaviour
 
     private void SetCurrentLineNumber(SetLineNumberEventInfo ei) 
     {
-        if (ei._lineNumber >= _currentTextFileLineAmount - 1)
+        if (ei._lineNumber >= _lineAmount - 1)
         {
-            Debug.LogWarning(string.Format("SetCurrentLineNumber, ei._lineNumber: {0} was greater than _currentTextFileLineAmount: {1}. _currentLineNR will not be changed", ei._lineNumber, _currentTextFileLineAmount));
+            Debug.LogWarning(string.Format("SetCurrentLineNumber, ei._lineNumber: {0} was greater than _currentTextFileLineAmount: {1}. _currentLineNR will not be changed", ei._lineNumber, _lineAmount));
 
         }
         else 
@@ -224,39 +213,30 @@ public class DialogueSystemV2 : MonoBehaviour
         _autoPrintNextLine = ei._isAutoNextLine;
     }
 
-    //Typing timing methods.
-    private void IncreaseTypingDelay(IncreaseTypingDelayEventInfo ei) 
+    private void SetTypingDelaySetting(SetTypingDelayEventInfo ei)
     {
-        _typingDelay += ei._speedIncrease;
+        _typingDelaySetting = ei._typingDelaySetting;
 
-        //Debug.Log(string.Format("IncreaseTypingDelay, _speedDecrease is: {0}", ei._speedIncrease));
-        //Debug.Log(string.Format("IncreaseTypingDelay, new _typingDelay is: {0}", _typingDelay));
-
-        CheckTypingDelay();
+        ApplyTypingDelaySetting();
     }
 
-    private void DecreaseTypingDelay(DecreaseTypingDelayEventInfo ei)
+    private void ApplyTypingDelaySetting()
     {
-        _typingDelay -= ei._speedDecrease;
-        //Debug.Log(string.Format("DecreaseTypingDelay, _speedDecrease is: {0}", ei._speedDecrease));
-        //Debug.Log(string.Format("DecreaseTypingDelay, new _typingDelay is: {0}", _typingDelay));
-
-        CheckTypingDelay();
-    }
-
-    private void CheckTypingDelay() 
-    {
-        if (_typingDelay < 0.01f)
+        if (_typingDelaySetting == TypingDelaySetting.fast)
         {
-            Debug.Log(string.Format("CheckTypingDelay. givenTypingDelay was below 0.01. Setting it to 0.01"));
-            _typingDelay = 0.01f;
+            _currentTypingDelay = _fastTypingDelay;
         }
-        else if (_typingDelay > 0.5f)
+        else if (_typingDelaySetting == TypingDelaySetting.normal)
         {
-            Debug.Log(string.Format("CheckTypingDelay. givenTypingDelay was above 0.5. Setting it to 0.5"));
-            _typingDelay = 0.05f;
+            _currentTypingDelay = _normalTypingDelay;
+        }
+        else if (_typingDelaySetting == TypingDelaySetting.slow)
+        {
+            _currentTypingDelay = _slowTypingDelay;
         }
     }
+
+
 
     private void PauseTyping(PauseTypingEventInfo ei) 
     {
@@ -317,14 +297,21 @@ public class DialogueSystemV2 : MonoBehaviour
 
                     //_tmpAnimation.AddCharacter(lineSubsection[j]);
 
-                    if (lineSubsection[j].Equals(' '))
+                    if (!lineSubsection[j].Equals(' '))
                     {
                         PlayDialogueSoundEvent ei = new PlayDialogueSoundEvent();
                         EventCoordinator<PlayDialogueSoundEvent>.FireEvent(ei);
                     }
 
-                    yield return new WaitForSeconds(_typingDelay);
-
+                    //If it's punctuation then the typing has a slightly longer delay.
+                    if (lineSubsection[j].Equals('.') || lineSubsection[j].Equals(',') || lineSubsection[j].Equals('!') || lineSubsection[j].Equals('?'))
+                    {
+                        yield return new WaitForSeconds(_currentTypingDelay * 1.2f);
+                    }
+                    else
+                    {
+                        yield return new WaitForSeconds(_currentTypingDelay);
+                    }
 
                 }
                 
@@ -355,11 +342,8 @@ public class DialogueSystemV2 : MonoBehaviour
     {
         switch (tempEvent.Info) 
         {
-            case IncreaseTypingDelayEventInfo ei:
-                EventCoordinator<IncreaseTypingDelayEventInfo>.FireEvent(ei);
-                break;
-            case DecreaseTypingDelayEventInfo ei:
-                EventCoordinator<DecreaseTypingDelayEventInfo>.FireEvent(ei);
+            case SetTypingDelayEventInfo ei:
+                EventCoordinator<SetTypingDelayEventInfo>.FireEvent(ei);
                 break;
             case PauseTypingEventInfo ei:
                 EventCoordinator<PauseTypingEventInfo>.FireEvent(ei);

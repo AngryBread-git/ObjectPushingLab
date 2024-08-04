@@ -1,7 +1,7 @@
-﻿Here we see Sisyphus - cursed for his hubris to roll a boulder up a hill for all eternity.{PauseTyping,0.4} Each time he reaches the top, the boulder rolls down and he begins anew.
-<style="ItalicBlue">"The struggle itself towards the heights is enough to fill a man's heart.{PauseTyping,0.2}<br>One <style="BoldRed">must imagine</style> Sisyphus happy."</style> - Albert Camus, 1942.
-But consider the following:{PauseTyping,0.3} One <style="BoldRed">must not imagine</style> Sisyphus happy.{PauseTyping,0.3} There is no intrinsic joy in pushing a boulder up a hill.
-He toils without reward.{PauseTyping,0.5} But what if he got a reward?
-Now presenting:{AddHat}{PauseTyping,0.5} a <style="OrangeBold">hat</style>.
+﻿Here we see Sisyphus - cursed for his hubris to roll a boulder up a hill for all eternity.{PauseTyping,400} Each time he reaches the top, the boulder rolls down and he begins anew.
+<style="ItalicBlue">"The struggle itself towards the heights is enough to fill a man's heart.{PauseTyping,200}<br>One <style="BoldRed">must imagine</style> Sisyphus happy."</style> - Albert Camus, 1942.
+But consider the following:{PauseTyping,300} One <style="BoldRed">must not imagine</style> Sisyphus happy.{PauseTyping,300} There is no intrinsic joy in pushing a boulder up a hill.
+He toils without reward.{PauseTyping,500} But what if he got a reward?
+Now presenting:{AddHat}{PauseTyping,500} a <style="OrangeBold">hat</style>.
 Brag about the time you've spent rolling a boulder with this groundbreaking piece of <style="OrangeBold">headwear</style>.
 {AutoNextLine,true}{NextStage}

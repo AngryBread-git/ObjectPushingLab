@@ -4520,8 +4520,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 60
-  m_fontSizeBase: 60
+  m_fontSize: 54
+  m_fontSizeBase: 54
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -17208,6 +17208,7 @@ GameObject:
   - component: {fileID: 1374758578}
   - component: {fileID: 1374758577}
   - component: {fileID: 1374758581}
+  - component: {fileID: 1374758582}
   m_Layer: 0
   m_Name: MainDialogueZone
   m_TagString: ResetZone
@@ -17305,8 +17306,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4985ebb1da3f024419865d8dbf55239d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mainTextFileToLoad: 0
+  _textFileToLoad: 0
+  _textFiles:
+  - {fileID: 4900000, guid: 613d08b57fe6e394ca68325f0368c64c, type: 3}
+  - {fileID: 4900000, guid: 4187555de5be2bc47a70c1d88e762183, type: 3}
+  - {fileID: 4900000, guid: 71f5da0bd7cd139438f88727bb421449, type: 3}
+  - {fileID: 4900000, guid: 0bbfc8f125439a94badc059e20ef8ded, type: 3}
+  - {fileID: 4900000, guid: d8cc6e53ec20c1f4da93c44c40af17c9, type: 3}
+  - {fileID: 4900000, guid: ebfd33e3dc2f6dc45a65d3e8b909323f, type: 3}
+  - {fileID: 4900000, guid: ff8aa3096155aaf46b431e08887a3f4e, type: 3}
+  - {fileID: 4900000, guid: 1cf8d1ca70df15146b8743239f38e020, type: 3}
+  - {fileID: 4900000, guid: c0cfa881f7b337043a603d81e253edf5, type: 3}
+  - {fileID: 4900000, guid: 20c1b260c1bed7a4ca9cb20fd23578a9, type: 3}
+  - {fileID: 4900000, guid: 1e6b337cf4481a248907abe3f65ae533, type: 3}
+  - {fileID: 4900000, guid: fee25bf61335e164e8154ffae649b544, type: 3}
   _allowPlayerToTrigger: 0
+--- !u!114 &1374758582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1374758575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6f787ec45e70b34f9be58c62740844c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1378568379
 GameObject:
   m_ObjectHideFlags: 0
@@ -23461,28 +23487,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c40702f1be9908b41b4eea696df24195, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _textFileFormatter: {fileID: 0}
   _textMeshPro: {fileID: 387693783}
   _textGameObject: {fileID: 387693781}
   _textBox: {fileID: 407923167}
   _interactIndicator: {fileID: 2096939470}
-  _mainTextFiles:
-  - {fileID: 4900000, guid: 613d08b57fe6e394ca68325f0368c64c, type: 3}
-  - {fileID: 4900000, guid: 4187555de5be2bc47a70c1d88e762183, type: 3}
-  - {fileID: 4900000, guid: 71f5da0bd7cd139438f88727bb421449, type: 3}
-  - {fileID: 4900000, guid: 0bbfc8f125439a94badc059e20ef8ded, type: 3}
-  - {fileID: 4900000, guid: d8cc6e53ec20c1f4da93c44c40af17c9, type: 3}
-  - {fileID: 4900000, guid: ebfd33e3dc2f6dc45a65d3e8b909323f, type: 3}
-  - {fileID: 4900000, guid: ff8aa3096155aaf46b431e08887a3f4e, type: 3}
-  - {fileID: 4900000, guid: 1cf8d1ca70df15146b8743239f38e020, type: 3}
-  - {fileID: 4900000, guid: c0cfa881f7b337043a603d81e253edf5, type: 3}
-  - {fileID: 4900000, guid: 20c1b260c1bed7a4ca9cb20fd23578a9, type: 3}
-  - {fileID: 4900000, guid: 1e6b337cf4481a248907abe3f65ae533, type: 3}
-  - {fileID: 4900000, guid: fee25bf61335e164e8154ffae649b544, type: 3}
-  _typingDelay: 0.02
+  _typingDelaySetting: 1
+  _fastTypingDelay: 0.03
+  _normalTypingDelay: 0.04
+  _slowTypingDelay: 0.06
   _currentTextFileNr: 0
   _advanceTextInput: 0
-  _currentTextFileLineAmount: 0
+  _lineAmount: 0
   _currentLineNr: 0
 --- !u!4 &1910494061
 Transform:
