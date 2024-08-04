@@ -5,8 +5,7 @@ using UnityEngine;
 public class NextStageEvent : EventInfo
 {
     //written as "{NextStage}". in the textfile. 
-    //the stage nr is tracked by the dialogue trigger. (transfered
-    //TODO: have the dialoguetriggers have a direct reference to their textfiles
+    //the stage nr is tracked by the dialogue trigger.
     public int _nextStageNr;
 }
 

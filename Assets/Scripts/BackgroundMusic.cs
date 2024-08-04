@@ -28,7 +28,7 @@ public class BackgroundMusic : MonoBehaviour
 
     private void ChangeBackgroundMusic(ChangeMusicEventInfo ei) 
     {
-        Debug.LogWarning(string.Format("ChangeBackgroundMusic called."));
+        //Debug.Log(string.Format("ChangeBackgroundMusic called."));
         //fade-out, then change song, then fade-in.
 
         if (_audioClips.Length <= _currentAudioClip)

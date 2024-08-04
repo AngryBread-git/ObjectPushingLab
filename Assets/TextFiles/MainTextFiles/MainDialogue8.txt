@@ -1,5 +1,5 @@
 ﻿Sorry to ask a favor, but a friend of mine is working on something.
 He called it <style="ItalicBlue">"Serpent Tennis"</style> and he asked if I could hold onto some UI-elements.
-And I said "yes" despite my apartment being full.{PauseTyping,0.5} So I guess my point is, do you mind holding onto them for me?
+And I said "yes" despite my apartment being full.{PauseTyping,0.5} So I guess my point is...{PauseTyping,0.3} do you mind holding onto them for me?
 Thanks. {AddUIElement,4}You mustn't hold them for long.{PauseTyping,0.4} He said he'll be done within a month.{AddHat}
 {AutoNextLine,true}{NextStage}

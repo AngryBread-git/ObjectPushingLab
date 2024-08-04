@@ -4,15 +4,39 @@ using UnityEngine;
 
 public class SoundFromEvent : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private AudioSource _nextStageAudioSource;
+    [SerializeField] private AudioSource _addUIAudioSource;
+    [SerializeField] private AudioSource _addHatAudioSource;
+
+
+    private void OnEnable()
     {
-        
+        EventCoordinator<NextStageEvent>.RegisterListener(PlayNextStageSound);
+        EventCoordinator<AddUIElementEvent>.RegisterListener(PlayAddUISound);
+        EventCoordinator<AddHatEvent>.RegisterListener(PlayAddHatSound);
+    }
+    private void OnDisable()
+    {
+        EventCoordinator<NextStageEvent>.UnregisterListener(PlayNextStageSound);
+        EventCoordinator<AddUIElementEvent>.UnregisterListener(PlayAddUISound);
+        EventCoordinator<AddHatEvent>.UnregisterListener(PlayAddHatSound);
     }
 
-    // Update is called once per frame
-    void Update()
+
+    private void PlayNextStageSound(NextStageEvent ei) 
     {
-        
+        _nextStageAudioSource.Play();
     }
+
+
+    private void PlayAddUISound(AddUIElementEvent ei)
+    {
+        _addUIAudioSource.Play();
+    }
+
+    private void PlayAddHatSound(AddHatEvent ei)
+    {
+        _addHatAudioSource.Play();
+    }
+
 }

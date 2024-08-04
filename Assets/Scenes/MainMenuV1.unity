@@ -1813,7 +1813,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PROJECT BANDIT
+  m_text: Project Bandit
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 41e2f8399cc89134f8e703c3b5b71213, type: 2}
   m_sharedMaterial: {fileID: -3217452815918012691, guid: 41e2f8399cc89134f8e703c3b5b71213, type: 2}
@@ -1846,7 +1846,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 32
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -4680,7 +4680,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8f6daf55fa62c304d9bfa8a7d0be7989, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 637aa12a3b69b4e43926f62ee8d3fb57, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

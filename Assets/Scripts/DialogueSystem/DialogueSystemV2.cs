@@ -92,7 +92,7 @@ public class DialogueSystemV2 : MonoBehaviour
         }
     }
 
-    public void StartDialogue(int textFileToLoad, int lineToLoad, string textFileType) 
+    public void StartDialogue(int textFileToLoad, int lineToLoad) 
     {
         //If there's a dialogue active, then dont start a new one.
         if (_isDialogueActive) 
@@ -261,13 +261,13 @@ public class DialogueSystemV2 : MonoBehaviour
         
         if (ei._pauseDuration > 0)
         {
-            Debug.Log(string.Format("PauseTyping, ei_pauseDuration is: {0}", ei._pauseDuration));
+            //Debug.Log(string.Format("PauseTyping, ei_pauseDuration is: {0}", ei._pauseDuration));
             _pauseDuration = ei._pauseDuration;
 
         }
         else 
         {
-            Debug.Log(string.Format("PauseTyping, ei_pauseDuration was below 0: {0}", ei._pauseDuration));
+            //Debug.Log(string.Format("PauseTyping, ei_pauseDuration was below 0: {0}", ei._pauseDuration));
             _pauseDuration = 1.0f;
         }
 

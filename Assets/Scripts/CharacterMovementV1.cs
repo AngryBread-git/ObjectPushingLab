@@ -177,17 +177,28 @@ public class CharacterMovementV1 : MonoBehaviour
         
         if (_isMovementPressed && !_isPushPressed)
         {
+            _animator.speed = 1;
             //_animator.CrossFade seems useful. also needs a check for the current state.
             _animator.Play("walk");
         }
 
-        else if (_isPushPressed) 
+        else if (_isMovementPressed && _isPushPressed) 
         {
+            _animator.speed = 1;
             _animator.Play("push");
         
         }
+
+        else if (!_isMovementPressed && _isPushPressed)
+        {
+            _animator.speed = 0.25f;
+            _animator.Play("push");
+
+        }
+
         else if (!_isMovementPressed && !_isPushPressed)
         {
+            _animator.speed = 1;
             _animator.Play("idle");
         }
 
