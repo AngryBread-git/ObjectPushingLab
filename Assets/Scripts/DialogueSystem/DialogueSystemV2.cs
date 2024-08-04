@@ -131,8 +131,8 @@ public class DialogueSystemV2 : MonoBehaviour
         _textGameObject.SetActive(true);
         _interactIndicator.SetActive(true);
         _textMeshPro.text = "";
+        _textMeshPro.maxVisibleCharacters = 0;
 
-        
         StartCoroutine(PrintLine(_formattedLines[_currentLineNr]));
 
     }
@@ -155,6 +155,7 @@ public class DialogueSystemV2 : MonoBehaviour
         _textGameObject.SetActive(false);
         _interactIndicator.SetActive(false);
         _textMeshPro.text = "";
+        _textMeshPro.maxVisibleCharacters = 0;
 
 
     }
@@ -167,6 +168,7 @@ public class DialogueSystemV2 : MonoBehaviour
         {
             
             _textMeshPro.text = "";
+            _textMeshPro.maxVisibleCharacters = 0;
 
             _currentLineNr += 1;
      
@@ -305,10 +307,13 @@ public class DialogueSystemV2 : MonoBehaviour
                 FormattedText tempText = (FormattedText)currentLine[i];
 
                 string lineSubsection = tempText.Text;
+                //add the text.
+                _textMeshPro.text += lineSubsection;
 
                 for (int j = 0; j < lineSubsection.Length; j++)
                 {
-                    _textMeshPro.text += lineSubsection[j];
+                    //make the new text show up, one character at a time.
+                    _textMeshPro.maxVisibleCharacters += 1;
 
                     //_tmpAnimation.AddCharacter(lineSubsection[j]);
 
@@ -371,27 +376,16 @@ public class DialogueSystemV2 : MonoBehaviour
             case SetTextAnimationStyleEventInfo ei:
                 EventCoordinator<SetTextAnimationStyleEventInfo>.FireEvent(ei);
                 break;
+            case SetTextAnimationIntensityEventInfo ei:
+                EventCoordinator<SetTextAnimationIntensityEventInfo>.FireEvent(ei);
+                break;
             case SetSpecifiedWordAnimationEventInfo ei:
                 EventCoordinator<SetSpecifiedWordAnimationEventInfo>.FireEvent(ei);
                 break;
-            case SetTextShakeEventInfo ei:
-                EventCoordinator<SetTextShakeEventInfo>.FireEvent(ei);
-                break;
-            case SetTextWobbleEventInfo ei:
-                EventCoordinator<SetTextWobbleEventInfo>.FireEvent(ei);
-                break;
-            case SetTextFloatEventInfo ei:
-                EventCoordinator<SetTextFloatEventInfo>.FireEvent(ei);
-                break;
-            case SetTextWaveEventInfo ei:
-                EventCoordinator<SetTextWaveEventInfo>.FireEvent(ei);
-                break;
-
             case NextStageEvent ei:
                 ei._nextStageNr = _currentTextFileNr + 1;
                 EventCoordinator<NextStageEvent>.FireEvent(ei);
                 break;
-
             case AddUIElementEvent ei:
                 EventCoordinator<AddUIElementEvent>.FireEvent(ei);
                 break;

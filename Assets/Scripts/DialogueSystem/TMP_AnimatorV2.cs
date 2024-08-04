@@ -12,6 +12,13 @@ public enum AnimationStyle
     waving,
 }
 
+public enum TextAnimationIntensity
+{
+    high,
+    medium,
+    low,
+}
+
 [RequireComponent(typeof(TextMeshProUGUI))]
 public class TMP_AnimatorV2 : MonoBehaviour
 {
@@ -23,8 +30,9 @@ public class TMP_AnimatorV2 : MonoBehaviour
     private Vector3[] _tempVertices;
     private Mesh _tempMesh;
 
-    [SerializeField] private bool _listenForEvents;
+    [SerializeField] private bool _listenForEvents = true;
     [SerializeField] private AnimationStyle _animationStyle;
+    [SerializeField] private TextAnimationIntensity _animationIntensity;
 
     [SerializeField] private bool _animateSpecifiedWords;
     [SerializeField] private List<int> _specifiedWordIndexes;
@@ -184,7 +192,7 @@ public class TMP_AnimatorV2 : MonoBehaviour
         }
     }
 
-
+    #region CalculateMotions
 
     private Vector2 ShakeMotion(float incrementedTime)
     {
@@ -219,22 +227,20 @@ public class TMP_AnimatorV2 : MonoBehaviour
         return result;
     }
 
+    #endregion CalculateMotions
+
 
     private void OnEnable()
     {
         TMPro_EventManager.TEXT_CHANGED_EVENT.Add(OnTextChange);
 
-        if (_listenForEvents) 
+        if (_listenForEvents)
         {
             EventCoordinator<SetTextAnimationStyleEventInfo>.RegisterListener(SetAnimationStyle);
+            EventCoordinator<SetTextAnimationIntensityEventInfo>.RegisterListener(SetAnimationIntensity);
+
             EventCoordinator<SetSpecifiedWordAnimationEventInfo>.RegisterListener(SetSpecifiedWordAnimation);
-
-            EventCoordinator<SetTextShakeEventInfo>.RegisterListener(SetShakeValues);
-            EventCoordinator<SetTextWobbleEventInfo>.RegisterListener(SetWobbleValues);
-            EventCoordinator<SetTextFloatEventInfo>.RegisterListener(SetFloatValues);
-            EventCoordinator<SetTextWaveEventInfo>.RegisterListener(SetWaveValues);
         }
-
     }
 
     private void OnDisable()
@@ -243,12 +249,10 @@ public class TMP_AnimatorV2 : MonoBehaviour
         if (_listenForEvents)
         {
             EventCoordinator<SetTextAnimationStyleEventInfo>.UnregisterListener(SetAnimationStyle);
+            EventCoordinator<SetTextAnimationIntensityEventInfo>.UnregisterListener(SetAnimationIntensity);
+
             EventCoordinator<SetSpecifiedWordAnimationEventInfo>.UnregisterListener(SetSpecifiedWordAnimation);
 
-            EventCoordinator<SetTextShakeEventInfo>.UnregisterListener(SetShakeValues);
-            EventCoordinator<SetTextWobbleEventInfo>.UnregisterListener(SetWobbleValues);
-            EventCoordinator<SetTextFloatEventInfo>.UnregisterListener(SetFloatValues);
-            EventCoordinator<SetTextWaveEventInfo>.UnregisterListener(SetWaveValues);
         }
     }
 
@@ -269,38 +273,73 @@ public class TMP_AnimatorV2 : MonoBehaviour
         _animationStyle = ei._animationStyle;
     }
 
+
+    private void SetAnimationIntensity(SetTextAnimationIntensityEventInfo ei)
+    {
+        _animationIntensity = ei._textAnimationIntensity;
+        ApplyAnimationIntensity();
+    }
+
+    //setters for the different values.
+    private void ApplyAnimationIntensity()
+    {
+        //Apply the coded values to each variable based on intensity.
+        if (_animationIntensity == TextAnimationIntensity.high)
+        {
+            _shakeHeightSpeed = 2.8f;
+            _shakeWidthSpeed = 2.5f;
+
+            _wobbleHeightSpeed = 2.6f;
+            _wobbleWidthSpeed = 2.2f;
+
+            _floatHeightSpeed = 1.7f;
+            _floatWidthSpeed = 1.3f;
+
+            _waveSpeed = 1.9f;
+            _waveLength = 0.01f;
+            _waveHeight = 4.5f;
+        }
+        else if (_animationIntensity == TextAnimationIntensity.medium)
+        {
+            _shakeHeightSpeed = 2.4f;
+            _shakeWidthSpeed = 2.0f;
+
+            _wobbleHeightSpeed = 2.2f;
+            _wobbleWidthSpeed = 1.8f;
+
+            _floatHeightSpeed = 1.5f;
+            _floatWidthSpeed = 1.2f;
+
+            _waveSpeed = 1.4f;
+            _waveLength = 0.01f;
+            _waveHeight = 4.0f;
+        }
+
+        else if (_animationIntensity == TextAnimationIntensity.low)
+        {
+            _shakeHeightSpeed = 2.0f;
+            _shakeWidthSpeed = 1.5f;
+
+            _wobbleHeightSpeed = 1.8f;
+            _wobbleWidthSpeed = 1.6f;
+
+            _floatHeightSpeed = 1.3f;
+            _floatWidthSpeed = 1.1f;
+
+            _waveSpeed = 1.2f;
+            _waveLength = 0.01f;
+            _waveHeight = 3.5f;
+        }
+
+    }
+
     private void SetSpecifiedWordAnimation(SetSpecifiedWordAnimationEventInfo ei) 
     {
         _animateSpecifiedWords = ei._animatedOnlyOneWord;
         _specifiedWordIndexes = ei._specifiedWordIndexes;
     }
 
-    private void SetShakeValues(SetTextShakeEventInfo ei)
-    {
-        _shakeHeightSpeed = ei._shakeHeightSpeed;
-        _shakeWidthSpeed = ei._shakeWidthSpeed;
-    }
 
-    private void SetWobbleValues(SetTextWobbleEventInfo ei)
-    {
-        _wobbleHeightSpeed = ei._wobbleHeightSpeed;
-        _wobbleWidthSpeed = ei._wobbleWidthSpeed;
-    }
-
-    private void SetFloatValues(SetTextFloatEventInfo ei) 
-    {
-        _floatHeightSpeed = ei._floatHeightSpeed;
-        _floatWidthSpeed = ei._floatWidthSpeed;
-    }
-
-    private void SetWaveValues(SetTextWaveEventInfo ei)
-    {
-        _waveSpeed = ei._waveSpeed;
-        _waveLength = ei._waveLength;
-        _waveHeight = ei._waveHeight;
-    }
-
-    //setters for the different values.
 
     #endregion EventListeners
 }

@@ -54,6 +54,13 @@ public class SetTextAnimationStyleEventInfo : EventInfo
     public AnimationStyle _animationStyle;
 }
 
+public class SetTextAnimationIntensityEventInfo : EventInfo
+{
+    //written as "{SetTextAnimationIntensity,X}". in the textfile. With X being a TextAnimationIntensity
+    //Note: See the text animator for the TextAnimationIntensitys and their values.
+    public TextAnimationIntensity _textAnimationIntensity;
+}
+
 public class SetSpecifiedWordAnimationEventInfo : EventInfo
 {
     //written as "{SetSpecifiedWordAnimation,X,Y,...}". in the textfile. With X being a bool. Y being an int, followed by any amount of ints.
@@ -63,34 +70,3 @@ public class SetSpecifiedWordAnimationEventInfo : EventInfo
     public List<int> _specifiedWordIndexes = new List<int>();
 }
 
-
-//set shake, set wobble, set float, set wave.
-public class SetTextShakeEventInfo : EventInfo
-{
-    //written as "{SetTextShake,X,Y}". in the textfile. With X (height) and Y (width) being floats.
-    public float _shakeHeightSpeed;
-    public float _shakeWidthSpeed;
-}
-
-public class SetTextWobbleEventInfo : EventInfo
-{
-    //written as "{SetTextWobble,X,Y}". in the textfile. With X (height) and Y Y (width) being floats.
-    public float _wobbleHeightSpeed;
-    public float _wobbleWidthSpeed;
-}
-
-public class SetTextFloatEventInfo : EventInfo
-{
-    //written as "{SetTextFloat,X,Y}". in the textfile. With X (height) and Y Y (width) being floats.
-    public float _floatHeightSpeed;
-    public float _floatWidthSpeed;
-}
-
-
-public class SetTextWaveEventInfo : EventInfo
-{
-    //written as "{SetTextWave,X,Y,Z}". in the textfile. With X (speed), Y (length) and Z (height) being floats.
-    public float _waveSpeed;
-    public float _waveLength;
-    public float _waveHeight;
-}

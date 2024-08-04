@@ -140,6 +140,11 @@ public class TextFileFormatter : MonoBehaviour
                 stasResult._animationStyle = (AnimationStyle) Enum.Parse(typeof(AnimationStyle), splitString[1]);
                 return stasResult;
 
+            case "SetTextAnimationIntensity":
+                SetTextAnimationIntensityEventInfo staiResult = new SetTextAnimationIntensityEventInfo();
+                staiResult._textAnimationIntensity = (TextAnimationIntensity)Enum.Parse(typeof(TextAnimationIntensity), splitString[1]);
+                return staiResult;
+
             case "SetSpecifiedWordAnimation":
                 SetSpecifiedWordAnimationEventInfo sswaResult = new SetSpecifiedWordAnimationEventInfo();
                 sswaResult._animatedOnlyOneWord = bool.Parse(splitString[1]);
@@ -157,30 +162,7 @@ public class TextFileFormatter : MonoBehaviour
 
                 return sswaResult;
 
-            case "SetTextShake":
-                SetTextShakeEventInfo stsResult = new SetTextShakeEventInfo();
-                stsResult._shakeHeightSpeed = float.Parse(splitString[1], CultureInfo.InvariantCulture.NumberFormat);
-                stsResult._shakeWidthSpeed = float.Parse(splitString[2], CultureInfo.InvariantCulture.NumberFormat);
-                return stsResult;
 
-            case "SetTextWobble":
-                SetTextWobbleEventInfo stwResult = new SetTextWobbleEventInfo();
-                stwResult._wobbleHeightSpeed = float.Parse(splitString[1], CultureInfo.InvariantCulture.NumberFormat);
-                stwResult._wobbleWidthSpeed = float.Parse(splitString[2], CultureInfo.InvariantCulture.NumberFormat);
-                return stwResult;
-
-            case "SetTextFloat":
-                SetTextFloatEventInfo stfResult = new SetTextFloatEventInfo();
-                stfResult._floatHeightSpeed = float.Parse(splitString[1], CultureInfo.InvariantCulture.NumberFormat);
-                stfResult._floatWidthSpeed = float.Parse(splitString[2], CultureInfo.InvariantCulture.NumberFormat);
-                return stfResult;
-
-            case "SetTextWave":
-                SetTextWaveEventInfo stwaResult = new SetTextWaveEventInfo();
-                stwaResult._waveSpeed = float.Parse(splitString[1], CultureInfo.InvariantCulture.NumberFormat);
-                stwaResult._waveLength = float.Parse(splitString[2], CultureInfo.InvariantCulture.NumberFormat);
-                stwaResult._waveHeight = float.Parse(splitString[3], CultureInfo.InvariantCulture.NumberFormat);
-                return stwaResult;
 
             case "NextStage":
                 NextStageEvent snsResult = new NextStageEvent();
