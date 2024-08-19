@@ -36,7 +36,7 @@ public class DialogueSound : MonoBehaviour
         Debug.Log(string.Format("PlayDialogueSound, _allowSound is: {0}", _allowSound));
         if (_allowSound) 
         {
-            _audioSource.pitch = Random.Range(0.85f, 1.15f);
+            _audioSource.pitch = Random.Range(0.95f, 1.05f);
             _audioSource.Play();
             _allowSound = false;
             StartCoroutine(AllowSoundAfterDelay(0.1f));
