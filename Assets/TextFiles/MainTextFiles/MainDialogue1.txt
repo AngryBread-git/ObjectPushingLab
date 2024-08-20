@@ -2,6 +2,5 @@
 <style="ItalicBlue">"The struggle itself towards the heights is enough to fill a man's heart.{PauseTyping,200}<br>One <style="BoldRed">must imagine</style> Sisyphus happy."</style> - Albert Camus, 1942.
 But consider the following:{PauseTyping,300} One <style="BoldRed">must not imagine</style> Sisyphus happy.{PauseTyping,300} There is no intrinsic joy in pushing a boulder up a hill.
 He toils without reward.{PauseTyping,500} But what if he got a reward?
-Now presenting:{AddHat}{PauseTyping,800} a <style="OrangeBold">hat</style>.
-And who knows what exciting <style="OrangeBold">reward</style> he'll get next time?
+Now presenting:{AddHat}{PauseTyping,800} a <style="OrangeBold">hat</style>. And next time he'll get an even more <style="OrangeBold">exciting reward</style>!
 {AutoNextLine,true}{NextStage}

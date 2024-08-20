@@ -8,6 +8,7 @@ public class HazardSpawner : MonoBehaviour
     [SerializeField] private List<GameObject> _hazardList2;
     [SerializeField] private List<GameObject> _hazardList3;
     [SerializeField] private List<GameObject> _hazardList4;
+    private int _nextStageNr = 0;
 
     private void OnEnable()
     {
@@ -20,7 +21,9 @@ public class HazardSpawner : MonoBehaviour
 
     private void SpawnHazard(NextStageEvent ei) 
     {
-        List<GameObject> currentList = SelectHazardList(ei._nextStageNr);
+        _nextStageNr += 1;
+        //Debug.Log(string.Format("HazardSpawner: _nextStageNr is {0}", _nextStageNr));
+        List<GameObject> currentList = SelectHazardList(_nextStageNr);
 
         if (currentList == null) 
         {

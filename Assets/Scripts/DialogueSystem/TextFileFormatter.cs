@@ -174,9 +174,9 @@ public class TextFileFormatter : MonoBehaviour
                 return ahResult;
 
             default:
-                Debug.LogWarning(string.Format("Default in FormatEventCall. EventType {0} does not exist.", splitString[0]));
+                Debug.LogWarning(string.Format("Default in FormatEventCall. string {0} does not match an event.", splitString[0]));
                 DebugEventInfo debugResult = new DebugEventInfo();
-                debugResult.EventDescription = ("Default in FormatEventCall. EventType does not exist.");
+                debugResult.EventDescription = ("Default in FormatEventCall.");
                 debugResult.PriorityLevel = 1;
                 return debugResult;
         }

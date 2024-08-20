@@ -1,6 +1,6 @@
 ﻿Ok Sisyphus, after entire minutes of figuring out a new and exciting idea.{PauseTyping,300}<br>I think I have it.
 {SetTextAnimation,floating}A{ChangeMusic}{PauseTyping,300} new,{PauseTyping,300} unique,{PauseTyping,300} never-before-seen idea.
-{SetTextAnimation,none}Introducing,{AddUIElement,2}{PauseTyping,300} roguelike deck-builder elements.{PauseTyping,300} Let's see our first pick. 
+{SetTextAnimation,none}Introducing,{AddUIElement,2}{PauseTyping,500} roguelike deck-builder elements.{PauseTyping,300} Let's see our first pick. 
 Oh oh, get that one.{PauseTyping,300} The third one. Look, <style="ItalicBlue">"2% lifesteal from yoga mats"</style> that's definitely a buildaround.
 Incredible!{AddUIElement,3}{PauseTyping,300} All yoga mats will heal you whenever you attack with one.<br>Now things are getting engaging.
 With such a great first pick, I don't even <style="BoldRed">have to imagine</style> you happy.<br>{PauseTyping,300}{AddHat}Because I know you are.

@@ -23492,9 +23492,9 @@ MonoBehaviour:
   _textBox: {fileID: 407923167}
   _interactIndicator: {fileID: 2096939470}
   _typingDelaySetting: 1
-  _fastTypingDelay: 0.03
-  _normalTypingDelay: 0.04
-  _slowTypingDelay: 0.06
+  _fastTypingDelay: 0.025
+  _normalTypingDelay: 0.035
+  _slowTypingDelay: 0.055
   _currentTextFileNr: 0
   _advanceTextInput: 0
   _lineAmount: 0

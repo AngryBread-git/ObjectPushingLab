@@ -248,6 +248,17 @@ public partial class @PlayerInputsV1: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""6c7cda7b-c890-4b34-a8b8-862cbd500109"",
+                    ""path"": ""<Keyboard>/numpadEnter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AdvanceDialogue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""9c379210-2175-492c-96c6-6acd7e910d91"",
                     ""path"": ""<Keyboard>/t"",
                     ""interactions"": """",

@@ -367,7 +367,6 @@ public class DialogueSystemV2 : MonoBehaviour
                 EventCoordinator<SetSpecifiedWordAnimationEventInfo>.FireEvent(ei);
                 break;
             case NextStageEvent ei:
-                ei._nextStageNr = _currentTextFileNr + 1;
                 EventCoordinator<NextStageEvent>.FireEvent(ei);
                 break;
             case AddUIElementEvent ei:
