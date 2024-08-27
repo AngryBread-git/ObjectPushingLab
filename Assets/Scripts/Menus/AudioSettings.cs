@@ -12,6 +12,9 @@ public class AudioSettings : MonoBehaviour
     [SerializeField] private AudioMixerGroup _effectsMixer;
     [SerializeField] private Slider _effectsSlider;
 
+    //The AudioSource that the effectsSlider calls.
+    [SerializeField] private AudioSource _effectsAudioSource;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +30,10 @@ public class AudioSettings : MonoBehaviour
 
     private void LoadSavedSettings()
     {
+        //Temporarily turn off sound effet source while loading settings.
+        float tempAudioSourceVolume = _effectsAudioSource.volume;
+        _effectsAudioSource.volume = 0;
+
         float tempMusicVolume = PlayerPrefs.GetFloat("musicVolume", 0.9f);
         _musicMixer.audioMixer.SetFloat("BGM_Volume", LinearToDecibel(tempMusicVolume));
         _musicSlider.value = tempMusicVolume;
@@ -36,6 +43,16 @@ public class AudioSettings : MonoBehaviour
         float tempEffectsVolume = PlayerPrefs.GetFloat("effectsVolume", 0.9f);
         _effectsMixer.audioMixer.SetFloat("SFX_Volume", LinearToDecibel(tempEffectsVolume));
         _effectsSlider.value = tempEffectsVolume;
+
+        //Turn on the sound effect source after settings have been loaded. And the sound effect has played.
+        TurnOnSoundEffectSource(tempAudioSourceVolume);
+
+    }
+
+    private IEnumerator TurnOnSoundEffectSource(float tempAudioSourceVolume) 
+    {
+        yield return new WaitForSeconds(1.2f);
+        _effectsAudioSource.volume = tempAudioSourceVolume;
     }
 
     public void UpdateMusicVolume(float sliderValue)

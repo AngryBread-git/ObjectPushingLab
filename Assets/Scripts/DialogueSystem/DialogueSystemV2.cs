@@ -43,6 +43,10 @@ public class DialogueSystemV2 : MonoBehaviour
     [SerializeField] private int _lineAmount;
     [SerializeField] private int _currentLineNr = 0;
 
+    public bool GetIsDialogueActive() 
+    {
+        return _isDialogueActive;
+    }
 
     void Start()
     {

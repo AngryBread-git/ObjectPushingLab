@@ -5295,6 +5295,7 @@ MonoBehaviour:
   _musicSlider: {fileID: 1241415698}
   _effectsMixer: {fileID: -7554502753085986981, guid: 16dc42ad79d1b704fb8865e0b0872d78, type: 2}
   _effectsSlider: {fileID: 189764260}
+  _effectsAudioSource: {fileID: 2054736683}
 --- !u!4 &2025428111
 Transform:
   m_ObjectHideFlags: 0

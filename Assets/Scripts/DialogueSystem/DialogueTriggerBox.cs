@@ -24,12 +24,12 @@ public class DialogueTriggerBox : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //Debug.Log(string.Format("DialogueTrigger, other.tag is: {0}", other.tag));
-        if (other.CompareTag("Boulder"))
+        if (other.CompareTag("Boulder") && !_dialogueSystem.GetIsDialogueActive())
         {
 
             FormatDialogue();
         }
-        else if (other.CompareTag("Player") && _allowPlayerToTrigger) 
+        else if (other.CompareTag("Player") && _allowPlayerToTrigger && !_dialogueSystem.GetIsDialogueActive()) 
         {
             FormatDialogue();
         }
