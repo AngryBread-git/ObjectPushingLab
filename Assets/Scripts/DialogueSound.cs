@@ -40,7 +40,7 @@ public class DialogueSound : MonoBehaviour
             _audioSource.Play();
             _allowSound = false;
 
-            float delay = Random.Range(0.1f, 0.2f);
+            float delay = Random.Range(0.15f, 0.25f);
             StartCoroutine(AllowSoundAfterDelay(delay));
         }
     }

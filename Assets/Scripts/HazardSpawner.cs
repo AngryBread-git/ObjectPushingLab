@@ -50,9 +50,9 @@ public class HazardSpawner : MonoBehaviour
                 return _hazardList1;
             case 2:
                 return _hazardList2;
-            case 4:
+            case 3:
                 return _hazardList3;
-            case 7:
+            case 6:
                 return _hazardList4;
             //etc
             default:
